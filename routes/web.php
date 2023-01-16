@@ -16,4 +16,7 @@ use App\Http\Controllers\CreateBookController;
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 
 Route::get('/admin/dashboard', [RegistrationController::class, 'adminDash'])->name('adminDash');
-
+Route::get('/admin/user', [RegistrationController::class, 'adminUser'])->name('adminUser');
+Route::get('/edit/{id}', [RegistrationController::class, 'edit'])->name('edit');
+Route::patch('/update/{id}', [RegistrationController::class, 'update'])->name('update');
+Route::delete('/delete/{id}', [RegistrationController::class, 'destroy'])->name('delete');

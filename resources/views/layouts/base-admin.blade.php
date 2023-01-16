@@ -33,7 +33,7 @@
             <aside class="sidebar">
                 <a href="" class="sidebar-logo">
                     <div class="d-flex justify-content-start align-items-center">
-                        <img src="{{ url('assets/img/global/logo-wk.png') }}" class="logo">
+                        <img src="{{ url('assets/img/logo-wk.png') }}" class="logo">
                         <span>E-Book Wikrama</span>
                     </div>
 
@@ -154,7 +154,7 @@
 
                 <div class="d-flex justify-content-between align-items-center nav-input-container">
                     <p class="mt-3">{{Auth::user()->name}}</p>
-                    <button class="btn-notif d-none d-md-block"><img src="{{ url('assets/img/global/person.svg') }}"
+                    <button class="btn-notif d-none d-md-block"><img src="{{ url('assets/img/person.svg') }}"
                             alt=""></button>
                 </div>
             </div>
