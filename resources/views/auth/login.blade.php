@@ -14,6 +14,11 @@
                     </ul>
                 </div>
             @endif
+            @if (Session::get('success'))
+                    <div class="alert alert-success w-100">
+                        {{ Session::get('success') }}
+                    </div>  
+                 @endif
             @csrf
             
               <div class="mb-3">

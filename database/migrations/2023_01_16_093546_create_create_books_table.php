@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('synopsis');
             $table->string('no');
             $table->string('image');
+            $table->integer('count_download')->nullable();
             $table->timestamps();
         });
     }

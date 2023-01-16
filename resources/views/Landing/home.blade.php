@@ -122,7 +122,7 @@
     </div>
     <div class="mt-5">
         <div class="bg-primary w-100 py-3">
-            <p class="text-center text-white p-0 m-0">Copyrighy Salsa Cantik</p>
+            <p class="text-center text-white p-0 m-0">Copyright</p>
         </div>
     </div>
 @endsection

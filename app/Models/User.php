@@ -12,12 +12,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $fillable = [
-        'name',
+    protected $fillable = [    
         'email',
-        'no_telp',
-        'address',
         'password',
+        'role',
+        'registration_id',
     ];
     /**
      * The attributes that should be hidden for serialization.

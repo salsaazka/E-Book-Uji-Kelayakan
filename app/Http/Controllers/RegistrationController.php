@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ebook;
+use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class EbookController extends Controller
+class RegistrationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('landing.home');
@@ -64,7 +59,7 @@ class EbookController extends Controller
 
         $user = $request->only('email', 'password');
         if (Auth::attempt($user)) {
-            return redirect("/user/dashboard")->with('success', 'Welcome!');
+            return redirect("/")->with('success', 'Welcome!');
         } else {
             return redirect('/')->with('fail', "Email-Address And Password Are Wrong.");
         }
@@ -81,14 +76,24 @@ class EbookController extends Controller
         //
     }
 
-    
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
     }
 
-    
-    public function show(Ebook $ebook)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Registration  $registration
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Registration $registration)
     {
         //
     }
@@ -96,10 +101,10 @@ class EbookController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Ebook  $ebook
+     * @param  \App\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ebook $ebook)
+    public function edit(Registration $registration)
     {
         //
     }
@@ -108,10 +113,10 @@ class EbookController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Ebook  $ebook
+     * @param  \App\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ebook $ebook)
+    public function update(Request $request, Registration $registration)
     {
         //
     }
@@ -119,10 +124,10 @@ class EbookController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Ebook  $ebook
+     * @param  \App\Models\Registration  $registration
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ebook $ebook)
+    public function destroy(Registration $registration)
     {
         //
     }
