@@ -59,7 +59,11 @@ class RegistrationController extends Controller
 
         $user = $request->only('email', 'password');
         if (Auth::attempt($user)) {
-            return redirect("/")->with('success', 'Welcome!');
+            if(Auth::user()->role == 'user'){
+                return redirect()->route('index')->with('success', "Welcome!");
+            }else{
+                return redirect()->route('adminDash');
+            }
         } else {
             return redirect('/')->with('fail', "Email-Address And Password Are Wrong.");
         }
@@ -67,8 +71,19 @@ class RegistrationController extends Controller
 
     public function adminDash()
     {
-         $regis = Ebook::all();
+         $regis = Registration::all();
          return view('admin.dashboard', compact('regis'))->with('i', (request()->input('page',1)-1));
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        //mengarahkan ke halaman login
+        return redirect('/login');
+    }
+
+    public function error(){
+       return view('error');
     }
 
     public function create()
@@ -76,12 +91,7 @@ class RegistrationController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //

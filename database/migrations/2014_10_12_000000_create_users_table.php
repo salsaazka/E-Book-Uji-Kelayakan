@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('ebook_id')->nullable();
             $table->string('email');
             $table->string('password');
             $table->enum('role', ['user', 'admin']);
