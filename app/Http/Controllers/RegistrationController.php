@@ -75,6 +75,12 @@ class RegistrationController extends Controller
          return view('admin.dashboard', compact('regis'))->with('i', (request()->input('page',1)-1));
     }
 
+    public function adminUser()
+    {
+        $regis = Registration::all();
+         return view('admin.user', compact('regis'));
+    }
+
     public function logout()
     {
         Auth::logout();
@@ -97,48 +103,39 @@ class RegistrationController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Registration $registration)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Registration $registration)
+    public function edit($id)
     {
-        //
+       $regis = Registration::where('id', $id)->first();
+       return view('dashboard.edit', compact('regis'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Registration $registration)
+    public function update(Request $request, $id)
     {
-        //
-    }
+      $request->validate([
+        'name' => 'required|min:3',
+        'address' => 'required',
+        'email' => 'required',
+        'no_telp' => 'required',
+      ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Registration  $registration
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Registration $registration)
+      Registration::where('id', $id)->update([
+        'name' => $request->name,
+        'address' => $request->address,
+        'email' => $request->email,
+        'no_telp' => $request->no_telp,
+      ]);
+
+      return redirect()->route('adminUser')->with('successUpdate', "Anda berhasil memperbaharui data!");
+    }
+    public function destroy($id)
     {
-        //
+       Registration::where('id', $id)->delete();
+       return redirect()->route('data')->with('delete', 'Berhasil menghapus data!');
     }
 }
