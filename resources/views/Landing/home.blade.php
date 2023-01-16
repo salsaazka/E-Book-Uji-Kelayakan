@@ -28,12 +28,12 @@
             <li class="nav-item">
                 <a class="nav-link scrollto" href="">Login</a>
             </li>
-          
+
         </ul>
       </div>
     </div>
   </nav>
-  
+
 
 <div class="content-sign px-3" style="min-height: 100vh">
     <div class="d-flex flex row ">
@@ -41,12 +41,12 @@
             @if (Session::get('success'))
               <div class="alert alert-success w-100">
                   {{ Session::get('success') }}
-              </div>  
+              </div>
             @endif
             <h3 class="text-center text-primary">
                 <strong>Welcome! This is E-Book Online</strong>
             </h3>
-            <span class="text-center text-muted offset-3">We can access book for online and free!</span>
+            <span class="text-center text-muted offset-3">Better soulutions for your choice book we can access book for online and free!</span>
 
             <div class="d-flex justify-content-center  mt-4">
                 <button class="btn btn-donasi btn-primary me-1">
@@ -57,11 +57,11 @@
                 </button>
             </div>
         </div>
-        
+
         <div class=" d-flex justify-content-center col-lg-6 mt-2 pt-2 " >
             <img src="{{asset('assets/img/book1.png')}}" alt="" class="p-3">
         </div>
-       
+
 </div>
 
 @endsection
