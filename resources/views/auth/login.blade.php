@@ -1,10 +1,10 @@
-@extends('layout/base-home')
+@extends('layouts.base-home')
 
 @section('content')
 
 <div class="container my-5">
     <div class="col-6">
-        <form method="POST" action="{{route('auth.login')}}" class="card py-4 px-4">
+        <form method="POST" action="{{route('login.auth')}}" class="card py-4 px-4">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>

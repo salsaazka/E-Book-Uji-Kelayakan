@@ -22,7 +22,7 @@ class EbookController extends Controller
     }
     public function register()
     {
-        return view('register');
+        return view('auth.register');
     }
 
     public function inputRegister(Request $request)
