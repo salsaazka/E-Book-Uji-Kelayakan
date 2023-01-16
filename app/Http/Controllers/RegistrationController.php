@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\CreateBook;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,9 @@ class RegistrationController extends Controller
 {
     public function index()
     {
-        return view('landing.home');
+        // createBook max 3 berdasarkan count_download terbnayak
+        $createBook = CreateBook::orderBy('count_download', 'desc')->take(3)->get();
+        return view('landing.home' , compact('createBook'));
     }
     public function register()
     {
@@ -91,7 +94,7 @@ class RegistrationController extends Controller
         //
     }
 
-    
+
     public function store(Request $request)
     {
         //

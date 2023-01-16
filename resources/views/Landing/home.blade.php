@@ -96,7 +96,15 @@
                 <strong>Buku Terpopuler</strong>
             </h3>
             <div class="d-flex justify-content-around mt-3">
-                <div class="card w-25">
+                @foreach ($createBook as $item)
+                    <a class="card w-25" href="#">
+                        <img src="{{ $item->image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">{{ $item->title }}</p>
+                        </div>
+                    </a>
+                @endforeach
+                {{-- <div class="card w-25">
                     <img src="{{ asset('assets/img/book1.png') }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
@@ -109,14 +117,7 @@
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                             card's content.</p>
                     </div>
-                </div>
-                <div class="card w-25">
-                    <img src="{{ asset('assets/img/book1.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                    </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
