@@ -56,7 +56,6 @@ aside #toggle-navbar {
 }
 @media (min-width: 1200px) {
   .sidebar-logo {
-    padding: 0 24px;
     justify-content: center;
   }
 }

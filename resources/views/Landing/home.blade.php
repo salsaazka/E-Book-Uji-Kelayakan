@@ -10,7 +10,7 @@
 @section('content')
     {{-- Navbar --}}
 
-    <nav class="navbar navbar-expand-md navbar-light sticky-top bg-light shadow ">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top shadow " style="margin-top: -.5rem">
         <div class="container">
             <a class="navbar-brand ">
                 <h4 class="text-primary">
@@ -46,7 +46,7 @@
         </div>
     @endif
 
-    <div class="container">
+    <div class="container mt-5">
         <div class="d-flex w-100 align-items-center">
             <div class="w-100 w-md-50">
                 <h2 class=" text-primary">
@@ -122,7 +122,7 @@
     </div>
     <div class="mt-5">
         <div class="bg-primary w-100 py-3">
-            <p class="text-center text-white p-0 m-0">Copyright</p>
+            <p class="text-center text-white p-0 m-0">Copyrighy Salsa Cantik</p>
         </div>
     </div>
 @endsection
