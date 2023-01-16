@@ -14,3 +14,6 @@ use App\Http\Controllers\CreateBookController;
     Route::post('/auth/login', [EbookController::class, 'auth'])->name('login.auth');
 
 Route::get('/logout', [EbookController::class, 'logout'])->name('logout');
+
+Route::get('/admin/dashboard', [EbookController::class, 'adminDash'])->name('adminDash');
+

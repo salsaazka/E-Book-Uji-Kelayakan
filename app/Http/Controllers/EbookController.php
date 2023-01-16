@@ -70,6 +70,12 @@ class EbookController extends Controller
         }
     }
 
+    public function adminDash()
+    {
+         $regis = Ebook::all();
+         return view('admin.dashboard', compact('regis'))->with('i', (request()->input('page',1)-1));
+    }
+
     public function create()
     {
         //
@@ -81,12 +87,7 @@ class EbookController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Ebook  $ebook
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Ebook $ebook)
     {
         //

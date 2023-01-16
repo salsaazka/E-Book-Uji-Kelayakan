@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    font-style: normal;
+}
+
+html,
+body {
+    font-family: "Poppins";
+    font-style: normal;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Navbar */
+
+/* .navbar .container {
+    top: 20px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.25);
+} */
+
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #ffc107;
+}
+
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+
+.navbar-light .navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25px #ffc107 !important;
+}
+
+.navbar {
+    padding: 1rem;
+    background: transparent;
+}
+
+.navbar .container {
+    padding: .5rem 2rem;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0px 6px 60px 0px rgba(22, 28, 51, 0.06);
+}
+
+.navbar .navbar-brand {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #211B3D;
+}
+
+.navbar .navbar-brand .logoFan {
+    width: 100%;
+    max-width: 42px;
+}
+
+.img-profile {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.navbar-light .navbar-nav .nav-link.profile {
+    color: #211B3D;
+}
+
+@media screen and (max-width: 991px) {
+    .navbar .navbar-collapse .navbar-nav {
+        align-items: center;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 990px) {
+    .navbar-nav .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav .dropdown .dropdown-menu {
+        font-size: 13px;
+        padding: 0;
+        border: none;
+        text-align: center;
+    }
+
+    .navbar-nav .dropdown .dropdown-menu .dropdown-item {
+        font-size: 13px;
+
+    }
+}
+
+/* End Navbar */
+
+/* Banner */
+
+.banner img {
+    height: 700px !important;
+}
+
+.banner .banner-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0;
+}
+
+.banner .container {
+    padding-right: 40rem !important;
+}
+
+.banner .btn {
+    padding: 1rem;
+}
+
+@media (max-width: 1400px) {
+    .banner .container {
+        padding-right: 30rem !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .banner .container {
+        padding-right: 20rem !important;
+    }
+
+    .banner img {
+        height: 650px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .banner .container {
+        padding-right: 10rem !important;
+    }
+
+    .banner img {
+        height: 600px !important;
+    }
+
+    .banner .banner-title {
+        font-size: 42px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+
+    .banner .card-text {
+        font-size: 15px;
+    }
+
+    .banner .btn {
+        padding: .8rem;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner .container {
+        padding-right: 7.5rem !important;
+    }
+
+    .banner img {
+        height: 550px !important;
+    }
+
+    .banner .banner-title {
+        font-size: 36px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+
+    .banner .card-text {
+        font-size: 14px;
+    }
+
+    .banner .btn {
+        padding: .6rem;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 550px) {
+    .banner .container {
+        padding-right: 6rem !important;
+    }
+
+    .banner img {
+        height: 500px !important;
+    }
+
+    .banner .banner-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+
+    .banner .card-text {
+        font-size: 12px;
+    }
+
+    .banner .btn {
+        padding: .6rem;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .banner .container {
+        padding-right: 3rem !important;
+    }
+
+    .banner img {
+        height: 450px !important;
+    }
+
+    .banner .banner-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+
+    .banner .card-text {
+        font-size: 11px;
+    }
+
+    .banner .btn {
+        padding: .6rem;
+        font-size: 11px;
+    }
+}
+
+/* End Banner */
+
+.info {
+    margin-top: -3rem;
+}
+
+.jurusan {
+    margin-top: 2.5rem;
+}
+
+.jurusan .card{
+    height: 300px !important;
+}
+
+
+.text-head h6 {
+    color: #ffc107;
+    position: relative;
+    display: inline-block;
+    text-transform: capitalize;
+}
+
+.text-head h6:after,
+.text-head h6:before {
+    position: absolute;
+    content: "";
+    width: 50px;
+    height: 3px;
+    background: #ffc107;
+    top: 50%;
+}
+
+.text-head h6:after {
+    right: 120%;
+}
+
+.text-head h6:before {
+    left: 120%;
+}
+
+
+/* about */
+
+.about{
+    margin: 2rem 0;
+}
+
+.about .main img{
+    width: 100% !important;
+    height: 450px !important;
+}
+
+.about .secound{
+    height: 450px !important;
+}
+
+.about .secound .row-1{
+    height: 50% !important;
+}
+
+.about .secound iframe{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.about .secound .text{
+    text-align: center;
+    background-color: #211B3D;
+    color: #fff;
+    padding: 1rem;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+.testimoni .slick {
+    margin-top: -1.5rem;
+}
+
+.testimoni .slick .desc{
+    padding-right: 2.5rem;
+}
+
+.testimoni .slick .desc h1{
+    background-color: transparent;
+}
+
+.text-orange{
+    color: #ffc107;
+}
+
+.hr{
+    z-index: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #211B3D;
+}
+
+.contact{
+    background-color: #211B3D;
+    margin-top: 5rem;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.contact .content{
+    flex-direction: row;
+}
+
+.contact .content .satu{
+    width: 25%;
+}
+
+.contact .content .dua{
+    width: 75%;
+    padding-left: 3rem;
+}
+
+@media screen and (max-width: 991px) {
+    .contact .content{
+        flex-direction: column-reverse;
+    }
+
+    .contact .content .satu{
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .contact .content .dua{
+        width: 100%;
+        padding: 0;
+    }
+}
