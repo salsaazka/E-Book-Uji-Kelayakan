@@ -18,7 +18,7 @@ class EbookController extends Controller
      */
     public function index()
     {
-        return view('Landing.home');
+        return view('landing.home');
     }
     public function register()
     {
@@ -45,7 +45,12 @@ class EbookController extends Controller
             'password' => Hash::make($request->password),
         ]);
         // apabila berhasil, bkl diarahin ke hlmn login dengan pesan success
-        return redirect('/login')->with('success', 'berhasil membuat akun!');
+        return redirect()->route('login')->with('success', 'berhasil membuat akun!');
+    }
+
+    public function login()
+    {
+        return view('auth.login');
     }
 
     public function auth(Request $request)

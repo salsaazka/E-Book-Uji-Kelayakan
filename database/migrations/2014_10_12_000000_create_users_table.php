@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('address');
-            $table->string('no_telp');
-            $table->string('email')->unique();
-            $table->string('password')->unique();
+            $table->bigInteger('ebook_id')->nullable();
+            $table->string('email');
+            $table->string('password');
+            $table->enum('role', ['user', 'admin']);
             $table->timestamps();
         });
     }
