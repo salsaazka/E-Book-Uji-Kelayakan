@@ -124,7 +124,7 @@ class RegistrationController extends Controller
         return redirect()->route('adminDash')->with('success', 'berhasil membuat akun!');
     }
 
-    
+
     public function show(Registration $registration)
     {
         //
@@ -158,5 +158,25 @@ class RegistrationController extends Controller
     {
        Registration::where('id', $id)->delete();
        return redirect()->route('data')->with('delete', 'Berhasil menghapus data!');
+    }
+
+    public function book()
+    {
+        $book = CreateBook::all();
+        return view('landing.book', compact('book'));
+    }
+
+    public function bookDetail($id)
+    {
+        $book = CreateBook::where('id', $id)->first();
+        return view('landing.bookDetail', compact('book'));
+    }
+
+    public function bookDownload($id)
+    {
+        $book = CreateBook::where('id', $id)->first();
+        $book->count_download = $book->count_download + 1;
+        $book->save();
+        return view('landing.bookDetail', compact('book'));
     }
 }

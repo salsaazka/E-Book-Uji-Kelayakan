@@ -119,6 +119,9 @@
                     </div>
                 </div> --}}
             </div>
+            <div class="d-flex justify-content-center">
+                <a href="{{ route('book') }}" class="btn btn-primary mt-3">Lihat Semua</a>
+            </div>
         </div>
     </div>
     <div class="mt-5">

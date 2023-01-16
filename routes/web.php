@@ -12,6 +12,9 @@ use App\Http\Controllers\CreateBookController;
     Route::post('/register', [RegistrationController::class, 'inputRegister'])->name('register.post');
     Route::get('/login', [RegistrationController::class, 'login'])->name('login');
     Route::post('/auth/login', [RegistrationController::class, 'auth'])->name('login.auth');
+    Route::get('/buku', [RegistrationController::class, 'book'])->name('book');
+    Route::get('/buku/{id}', [RegistrationController::class, 'bookDetail'])->name('bookDetail');
+    Route::get('/download/{id}', [RegistrationController::class, 'bookDownload'])->name('bookDownload');
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 
