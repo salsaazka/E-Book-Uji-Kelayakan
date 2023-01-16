@@ -42,7 +42,6 @@ class RegistrationController extends Controller
             'address' => $request->address,
             'password' => Hash::make($request->password),
         ]);
-        // apabila berhasil, bkl diarahin ke hlmn login dengan pesan success
         return redirect()->route('login')->with('success', 'berhasil membuat akun!');
     }
 
@@ -97,13 +96,32 @@ class RegistrationController extends Controller
 
     public function create()
     {
-        //
+       return view('admin.create');
     }
 
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'writer' => 'required',
+            'publisher' => 'required',
+            'category' => 'required',
+            'image' => 'required',
+            'no' => 'required',
+            'synopsis' => 'required',
+        ]);
+        
+        CreateBook::create([
+            'writer' => $request->writer,
+            'publisher' => $request->publisher,
+            'title' => $request->title,
+            'category' => $request->category,
+            'image' => $request->image,
+            'no' => $request->image,
+            'synopsis' => $request->synopsis,
+        ]);
+        return redirect()->route('adminDash')->with('success', 'berhasil membuat akun!');
     }
 
     
