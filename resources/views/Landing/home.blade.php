@@ -22,13 +22,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
+            @if (Auth::check())
+            <li class="nav-item">
+                <a class="nav-link scrollto active" href="#">Logout</a>
+            </li>
+            @else
             <li class="nav-item">
                 <a class="nav-link scrollto active" href="#">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link scrollto" href="">Login</a>
             </li>
-          
+          @endif
         </ul>
       </div>
     </div>
@@ -50,10 +55,10 @@
 
             <div class="d-flex justify-content-center  mt-4">
                 <button class="btn btn-donasi btn-primary me-1">
-                    <a href="/register" class="text-white text-decoration-none">Registrasi</a>
+                    <a href="/auth/register" class="text-white text-decoration-none">Registrasi</a>
                 </button>
                 <button class="btn btn-donasi-outline btn-outline-primary">
-                    <a href="/login" class="text-decoration-none">Login</a>
+                    <a href="{{ route('login') }}" class="text-decoration-none">Login</a>
                 </button>
             </div>
         </div>
