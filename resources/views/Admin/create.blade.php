@@ -4,11 +4,11 @@
 
 <div class="content-sign px-3" >
     <div class="d-flex flex row ">
-    <div class="col-6  d-flex justify-content-center col-lg-6 mt-2 pt-2 ">
-        <img src="{{asset('assets/img/book-2.png')}}" alt="" class="w-100">
+    <div class="col-6  d-flex justify-content-center col-lg-6 ">
+        <img src="{{asset('assets/img/book1.png')}}" alt="" class="w-100">
     </div>
-    <div class="col-6 col-md-12 col-lg-5 col-xl-6 mt-5 pt-2">
-        <form method="POST" action="{{route('store')}}" class="card py-4 px-4">
+    <div class="col-6 col-md-12 col-lg-5 col-xl-6 mt-2 pt-2">
+        <form method="POST" action="{{ route('store')}}" class="card py-4 px-4">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -35,8 +35,8 @@
                 <input type="text" name="publisher" class="form-control" id="exampleFormControlInput1" placeholder="Input Publisher">
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Category Book</label>
-                <select name="category" id="">
+                <label  class="form-label">Category Book</label>
+                <select class="form-select" aria-label="Default select example" name="category" id="">
                     <option selected>--Select--</option>
                     <option value="Fiksi">Fiksi</option>
                     <option value="Non Fiksi">Non Fiksi</option>
@@ -51,8 +51,8 @@
                 <input type="text" name="no" class="form-control" id="exampleFormControlInput1" placeholder="Input No ISBN">
               </div>
               <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Synonimm</label>
-                <textarea name="synonim" id="" ></textarea>
+                <label for="exampleFormControlInput1" class="form-label">Synopsis</label>
+                <textarea type="text" class="form-control" name="synopsis" id="" ></textarea>
               </div>
                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Submit</button>
          

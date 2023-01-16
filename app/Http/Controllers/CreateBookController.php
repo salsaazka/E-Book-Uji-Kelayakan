@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\CreateBook;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Route;
 
 class CreateBookController extends Controller
 {
@@ -24,20 +26,48 @@ class CreateBookController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function store(Request $request, CreateBook $createBook)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required',
+            'writer' => 'required',
+            'publisher' => 'required',
+            'category' => 'required',
+            'image' => 'required',
+            'no' => 'required',
+            'synopsis' => 'required',
+        ]);
+        
+       
+        $image = $request->file('image');
+        $imgName = time().rand().'.'.$image->extension();
 
+        if(!file_exists(public_path('/assets/img/data/'.$image->getClientOriginalName()))){
+            //set untuk menyimpan file nya
+            $dPath = public_path('/assets/img/data/');
+            //memindahkan file yang diupload ke directory yang telah ditentukan
+            $image->move($dPath, $imgName);
+            $uploaded = $imgName;
+        }else{
+            $uploaded = $image->getClientOriginalName();
+        }
+
+        CreateBook::create([
+            'title' => $request->title,
+            'writer' => $request->writer,
+            'publisher' => $request->publisher,
+            'category' => $request->category,
+            'image' => $uploaded,
+            'no' => $request->image,
+            'synopsis' => $request->synopsis,
+        ]);
+
+        return redirect()->route('adminDash')->with('success', 'berhasil membuat akun!');
+    }
     /**
      * Display the specified resource.
      *

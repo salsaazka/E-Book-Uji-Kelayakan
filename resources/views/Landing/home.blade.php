@@ -49,7 +49,7 @@
     <div class="container mt-5">
         <div class="d-flex w-100 align-items-center">
             <div class="w-100 w-md-50">
-                <h2 class=" text-primary">
+                <h2 class=" text-primary pt-5">
                     <strong>Selamat Datang Di E-Book!</strong>
                 </h2>
                 <span class="text-muted fs-6">Untuk memenuhi kebutuhan pemustaka, kami melanggan berbagai bahan perpustakaan
