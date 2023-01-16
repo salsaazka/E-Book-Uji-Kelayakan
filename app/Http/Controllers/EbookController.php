@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ebook;
 use Illuminate\Http\Request;
-use App\Http\Models\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

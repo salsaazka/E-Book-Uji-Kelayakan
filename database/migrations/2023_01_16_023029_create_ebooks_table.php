@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('ebooks', function (Blueprint $table) {
             $table->id();
-            $table->string('regist_id')->nullable();
+            $table->string('user_id')->nullable();
             $table->string('title');
             $table->string('writer');
             $table->string('publisher');
