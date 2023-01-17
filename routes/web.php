@@ -37,7 +37,7 @@ Route::middleware(['Login', 'Role:admin'])->group(function(){
     Route::get('/admin/create', [CreateBookController::class, 'createBook'])->name('createBook');
     Route::post('/admin/create', [CreateBookController::class, 'store'])->name('store');
     Route::get('/admin/category', [CategoryController::class, 'create'])->name('create');
-    Route::post('/admin/category', [CategoryController::class, 'post'])->name('category');
+    Route::post('/admin/category', [CategoryController::class, 'store'])->name('category');
     Route::get('/edit/{id}', [CreateBookController::class, 'edit'])->name('edit');
     Route::patch('/update/{id}', [CreateBookController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [CreateBookController::class, 'destroy'])->name('delete');

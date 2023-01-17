@@ -80,7 +80,7 @@ class RegistrationController extends Controller
     public function adminDash()
     {
          $regis = Registration::all();
-         return view('admin.dashboard', compact('regis'))->with('i', (request()->input('page',1)-1));
+         return view('admin.dashboard', compact('regis'));
     }
 
     public function adminUser()
