@@ -85,7 +85,7 @@ class RegistrationController extends Controller
 
     public function adminUser()
     {
-        $regis = Registration::all();
+        $regis = User::where('role', 'user')->get();
          return view('admin.user', compact('regis'));
     }
 
@@ -106,13 +106,13 @@ class RegistrationController extends Controller
 
     public function create()
     {
-       
+
     }
 
 
     public function store(Request $request)
     {
-       
+
     }
 
 
