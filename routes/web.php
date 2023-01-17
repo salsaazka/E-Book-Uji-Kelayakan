@@ -6,13 +6,13 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreateBookController;
 
 // auth
-Route::middleware('Guest')->group(function(){
+// Route::middleware('Guest')->group(function(){
     Route::get('/login', [RegistrationController::class, 'login'])->name('login');
     Route::post('/auth/login', [RegistrationController::class, 'auth'])->name('login.auth');   
     Route::get('/auth/register', [RegistrationController::class, 'register'])->name('register');
     Route::post('/register', [RegistrationController::class, 'inputRegister'])->name('register.post');
 
-});
+// });
 
 //user
  Route::middleware(['Login', 'Role:user'])->group(function(){
@@ -41,4 +41,5 @@ Route::middleware(['Login', 'Role:admin'])->group(function(){
     Route::get('/edit/{id}', [RegistrationController::class, 'edit'])->name('edit');
     Route::patch('/update/{id}', [RegistrationController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [RegistrationController::class, 'destroy'])->name('delete');
+    Route::get('/buku/excel', [RegistrationController::class, 'export'])->name('export.excel');
 });

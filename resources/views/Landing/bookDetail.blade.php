@@ -25,11 +25,11 @@
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link scrollto text-primary active" href="#">Logout</a>
+                            <a class="nav-link scrollto text-primary active" href="/login">Logout</a>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link scrollto active text-primary me-3" href="#">Home</a>
+                            <a class="nav-link scrollto active text-primary me-3" href="/user/dashboard">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link scrollto" href="{{ route('login') }}">Login</a>
