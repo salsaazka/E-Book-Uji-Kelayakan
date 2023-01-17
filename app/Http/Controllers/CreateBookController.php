@@ -69,12 +69,7 @@ class CreateBookController extends Controller
 
         return redirect()->route('adminDash')->with('success', 'berhasil membuat akun!');
     }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\CreateBook  $createBook
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(CreateBook $createBook)
     {
         //

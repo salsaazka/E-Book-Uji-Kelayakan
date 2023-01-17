@@ -30,16 +30,21 @@ Route::middleware(['Login', 'Role:user, admin'])->group(function(){
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 Route::get('/error', [RegistrationController::class, 'error'])->name('error');
+
 //admin
 Route::middleware(['Login', 'Role:admin'])->group(function(){
+    //Registration
     Route::get('/admin/dashboard', [RegistrationController::class, 'adminDash'])->name('adminDash');
     Route::get('/admin/user', [RegistrationController::class, 'adminUser'])->name('adminUser');
+    Route::get('/buku/excel', [RegistrationController::class, 'export'])->name('export.excel');
+    //CreateBook
     Route::get('/admin/create', [CreateBookController::class, 'createBook'])->name('createBook');
     Route::post('/admin/create', [CreateBookController::class, 'store'])->name('store');
-    Route::get('/admin/category', [CategoryController::class, 'create'])->name('create');
-    Route::post('/admin/category', [CategoryController::class, 'store'])->name('category');
     Route::get('/edit/{id}', [CreateBookController::class, 'edit'])->name('edit');
     Route::patch('/update/{id}', [CreateBookController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [CreateBookController::class, 'destroy'])->name('delete');
-    Route::get('/buku/excel', [RegistrationController::class, 'export'])->name('export.excel');
+    //Category
+    Route::get('/admin/category', [CategoryController::class, 'create'])->name('create');
+    Route::post('/admin/category', [CategoryController::class, 'store'])->name('category');
+    
 });
