@@ -3,10 +3,10 @@
 @section('content')
 
 <div class="content-sign px-3" >
-    <div class="d-flex flex row ">
-    <div class="col-6  d-flex justify-content-center col-lg-6 ">
+    <div class="d-flex justify-content-center flex row ">
+    {{-- <div class="col-6  d-flex justify-content-center col-lg-6 ">
         <img src="{{asset('assets/img/book1.png')}}" alt="" class="w-100">
-    </div>
+    </div> --}}
     <div class="col-6 col-md-12 col-lg-5 col-xl-6 mt-2 pt-2">
         <form method="POST" action="{{ route('post')}}" class="card py-4 px-4">
             @csrf
@@ -25,7 +25,7 @@
                     <label for="exampleFormControlInput1" class="form-label">Category Name</label>
                     <input type="text" name="title" class="form-control" id="exampleFormControlInput1" placeholder="Input Title">
               </div>
-                <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Submit</button>
+                <button type="submit" class="btn btn-success"></i> Submit</button>
         </form>
     </div>
 </div>

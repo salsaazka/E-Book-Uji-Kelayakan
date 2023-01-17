@@ -73,7 +73,7 @@ class RegistrationController extends Controller
 
     public function export()
     {
-        return Excel::download(new EbooksExport, 'DataPeminjaman.xlsx');
+        return Excel::download(new EbooksExport, 'Data.xlsx');
 
     }
 
