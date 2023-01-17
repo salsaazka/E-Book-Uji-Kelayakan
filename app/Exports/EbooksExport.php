@@ -12,6 +12,11 @@ class EbooksExport implements FromCollection, WithHeadings
     {
         return [
             'title',
+            'writer',
+            'publisher',
+            'category',
+            'synopsis',
+            'no',
         ];
     }
     public function collection()

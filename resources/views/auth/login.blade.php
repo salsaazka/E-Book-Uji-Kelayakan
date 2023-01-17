@@ -37,7 +37,7 @@
               </div>
             
                 <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Submit</button>
-         
+               <a href="{{ route('index') }}" class="btn btn-secondary mt-2">Back</a>
         </form>
     </div>
     

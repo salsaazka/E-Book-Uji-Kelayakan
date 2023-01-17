@@ -24,6 +24,17 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
+                      <li class="nav-item">
+                        <a class="nav-link scrollto text-primary active" href="{{ route('index') }}">Logout</a>
+                      </li>
+                    @else
+                      <li class="nav-item">
+                        <a class="nav-link scrollto active text-primary me-3" href="{{ route('userDash')}}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link scrollto" href="{{ route('login') }}">Login</a>
+                      </li>
+                    
                     <form class="d-flex" role="search">
                         <div class="nav-item dropdown" >
                           <a class="nav-link dropdown-toggle" href="#" role="button" style="color:white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,15 +43,15 @@
                       
                      <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="/">
-                        <i class="fa-solid fa-house" style="color: rgb(0, 41, 177)"></i> 
+                        <i class="fa-solid fa-house" style="color: rgb(0, 41, 177)"></i> Novel
                       </a></li>
                        <li><a class="dropdown-item" href="/">
-                         <i class="fa-solid fa-user" style="color: rgb(0, 41, 177)"></i> Profile Detail
+                         <i class="fa-solid fa-user" style="color: rgb(0, 41, 177)"></i> IT
                         </a></li>
                         
                           <li>
-                            <a class="dropdown-item" href="" >
-                              <i class="fas fa-server" style="color: rgb(0, 41, 177)"></i> Data User
+                            <a class="dropdown-item" href="/" >
+                              <i class="fas fa-server" style="color: rgb(0, 41, 177)"></i> Fiksi
                             </a>
                           </li>
                        
@@ -57,4 +68,9 @@
             </div>
         </div>
     </nav>
+    @if (Session::get('success'))
+    <div class="alert alert-success w-40 justify-content-center">
+        {{ Session::get('success') }}
+    </div>
+@endif
 @endsection

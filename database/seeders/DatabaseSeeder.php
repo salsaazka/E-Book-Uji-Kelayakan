@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Fantasy',
             'synopsis' => 'The Lord',
             'no' => '8627562752',
-            'image' => 'https://images-na.ssl-images-amazon.com/images/I/51Zy2YQZQWL._SX331_BO1,204,203,200_.jpg',
+            'image' => 'https://img.freepik.com/premium-photo/crop-hand-taking-book-from-shelf_23-2147845909.jpg',
             'count_download' => 20,
         ],
         [
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Fantasy',
             'synopsis' => 'The Lord',
             'no' => '8627562752',
-            'image' => 'https://images-na.ssl-images-amazon.com/images/I/51Zy2YQZQWL._SX331_BO1,204,203,200_.jpg',
+            'image' => 'https://img.freepik.com/premium-photo/crop-hand-taking-book-from-shelf_23-2147845909.jpg',
             'count_download' => 30,
         ],
         [
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Fantasy',
             'synopsis' => 'The Lord',
             'no' => '8627562752',
-            'image' => 'https://images-na.ssl-images-amazon.com/images/I/51Zy2YQZQWL._SX331_BO1,204,203,200_.jpg',
+            'image' => 'https://img.freepik.com/premium-photo/crop-hand-taking-book-from-shelf_23-2147845909.jpg',
             'count_download' => 40,
         ],
         [
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Fantasy',
             'synopsis' => 'The Lord',
             'no' => '8627562752',
-            'image' => 'https://images-na.ssl-images-amazon.com/images/I/51Zy2YQZQWL._SX331_BO1,204,203,200_.jpg',
+            'image' => 'https://img.freepik.com/premium-photo/crop-hand-taking-book-from-shelf_23-2147845909.jpg',
             'count_download' => 10,
         ]
     );

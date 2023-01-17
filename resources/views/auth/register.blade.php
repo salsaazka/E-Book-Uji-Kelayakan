@@ -5,7 +5,7 @@
 <div class="content-sign px-3" >
     <div class="d-flex flex row ">
     <div class="col-6  d-flex justify-content-center col-lg-6 mt-2 pt-2 ">
-        <img src="{{asset('assets/img/book-2.png')}}" alt="" class="w-100">
+        <img src="{{asset('assets/img/3180758.jpg')}}" alt="" class="w-100">
     </div>
     <div class="col-6 col-md-12 col-lg-5 col-xl-6 mt-5 pt-2">
         <form method="POST" action="{{route('register.post')}}" class="card py-4 px-4">

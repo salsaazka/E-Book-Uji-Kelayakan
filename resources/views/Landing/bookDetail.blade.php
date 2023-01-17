@@ -47,19 +47,27 @@
     @endif
 
     <div class="container" style="min-height: 100vh; margin-top: 7rem">
-        <div class="d-flex">
-            <div class="w-25">
+        <div class="d-flex flex-row card">
+            <div class="col-4 m-3 d-flex justify-content-center">
                 <img src="{{ $book->image }}" class="w-100">
             </div>
-            <div class="w-75">
-                <h2>{{ $book->title }}</h2>
-                <a href="{{ route('bookDownload', $book->id) }}" class="btn">download</a>
+            <div class="col-8 m-3">
+                <p>Judul: {{ $book->title }}</p>
+                <p>Penulis: {{ $book->writer }}</p>
+                <p>Penerbit: {{ $book->publisher }}</p>
+                <p>No ISBN: {{ $book->no }}</p>
+                <h4>
+                    <strong>Sinopsis:</strong>
+                </h4><br>
+                <p>{{ $book->synopsis }}</p>
+                <a href="{{ route('bookDownload', $book->id) }}" class="btn btn-success">Download</a>
+                <a href="{{ route('book') }}" class="btn btn-warning">Back</a>
             </div>
         </div>
     </div>
     <div class="mt-5">
         <div class="bg-primary w-100 py-3">
-            <p class="text-center text-white p-0 m-0">Copyrighy Salsa Cantik</p>
+            <p class="text-center text-white p-0 m-0">Copyright</p>
         </div>
     </div>
 @endsection

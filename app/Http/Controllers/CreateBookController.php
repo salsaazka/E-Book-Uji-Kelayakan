@@ -24,7 +24,7 @@ class CreateBookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createBook()
     {
        return view('admin.create');
     }
@@ -79,37 +79,37 @@ class CreateBookController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\CreateBook  $createBook
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CreateBook $createBook)
+    public function edit($id)
     {
-        //
+       $category = CreateBook::where('id', $id)->first();
+       return view('user.edit', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CreateBook  $createBook
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, CreateBook $createBook)
+    public function update(Request $request, $id)
     {
-        //
-    }
+      $request->validate([
+        'title' => 'required',
+        'writer' => 'required',
+        'publisher' => 'required',
+        'category' => 'required',
+        'no' => 'required',
+        'synopsis' => 'required',
+      ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\CreateBook  $createBook
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(CreateBook $createBook)
+      CreateBook::where('id', $id)->update([
+        'title' => $request->title,
+        'writer' => $request->writer,
+        'publisher' => $request->publisher,
+        'category' => $request->category,
+        'no' => $request->image,
+        'synopsis' => $request->synopsis,
+      ]);
+
+      return redirect()->route('create')->with('successUpdate', "Anda berhasil memperbaharui data!");
+    }
+    public function destroy($id)
     {
-        //
+       CreateBook::where('id', $id)->delete();
+       return redirect()->route('userDash')->with('delete', 'Berhasil menghapus data!');
     }
 }

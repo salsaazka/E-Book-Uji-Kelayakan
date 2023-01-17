@@ -24,13 +24,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link scrollto active text-primary me-3" href="{{ route('userDash') }}">Home</a>
+                    </li>
                         <li class="nav-item">
-                            <a class="nav-link scrollto text-primary active" href="#">Logout</a>
+                            <a class="nav-link scrollto text-primary active" href="{{ route('index') }}">Logout</a>
                         </li>
                     @else
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active text-primary me-3" href="#">Home</a>
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link scrollto" href="{{ route('login') }}">Login</a>
                         </li>
@@ -56,7 +57,7 @@
                     <a class="card me-2 mt-3" href="{{ route('bookDetail', $item->id) }}" style="width: 23%">
                         <img src="{{ $item->image }}" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <p class="card-text">{{ $item->title }}</p>
+                            <p class="card-text" style="text-decoration: none">{{ $item->title }}</p>
                         </div>
                     </a>
                 @endforeach
@@ -65,7 +66,7 @@
     </div>
     <div class="mt-5">
         <div class="bg-primary w-100 py-3">
-            <p class="text-center text-white p-0 m-0">Copyrighy Salsa Cantik</p>
+            <p class="text-center text-white p-0 m-0">Copyright</p>
         </div>
     </div>
 @endsection
