@@ -71,31 +71,12 @@ class RegistrationController extends Controller
         }
     }
 
-    // public function loginUs()
-    // {
-    //     return view('auth.login');
-    // }
+    public function export()
+    {
+        return Excel::download(new EsExport, 'DataPeminjaman.xlsx');
 
-    // public function userLogin()
-    // {
-    //     $request->validate([
-    //         'email' => 'required|exists:users,email',
-    //         'password' => 'required',
-    //     ],[
-    //         'email.exists' => "This email doesn't exists"
-    //     ]);
+    }
 
-    //     $user = $request->only('email', 'password');
-    //     if (Auth::attempt($user)) {
-    //         if(Auth::user()->role == 'user'){
-    //             return redirect()->route('userDash')->with('success', "Welcome!");
-    //         }else{
-    //             return redirect()->route('adminDash');
-    //         }
-    //     } else {
-    //         return redirect('/')->with('fail', "Email-Address And Password Are Wrong.");
-    //     }
-    // }
     public function adminDash()
     {
          $regis = Registration::all();
