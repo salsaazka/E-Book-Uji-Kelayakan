@@ -26,7 +26,8 @@ class CreateBookController extends Controller
      */
     public function createBook()
     {
-       return view('admin.create');
+        $category = CreateBook::all();
+       return view('Admin.create', compact('category'));
     }
 
 
@@ -41,8 +42,8 @@ class CreateBookController extends Controller
             'no' => 'required',
             'synopsis' => 'required',
         ]);
-        
-       
+
+
         $image = $request->file('image');
         $imgName = time().rand().'.'.$image->extension();
 

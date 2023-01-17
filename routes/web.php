@@ -41,4 +41,5 @@ Route::middleware(['Login', 'Role:admin'])->group(function(){
     Route::get('/edit/{id}', [RegistrationController::class, 'edit'])->name('edit');
     Route::patch('/update/{id}', [RegistrationController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [RegistrationController::class, 'destroy'])->name('delete');
+    Route::get('/buku/excel', [RegistrationController::class, 'export'])->name('export.excel');
 });

@@ -17,13 +17,14 @@ class CategoryController extends Controller
         //
     }
 
-    
+
     public function create()
     {
-        return view('admin.category');
+        $category = Category::all();
+        return view('admin.category', compact('category'));
     }
 
-   
+
     public function store(Request $request)
     {
         $request->validate([
@@ -36,7 +37,7 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    
+
     public function show(Category $category)
     {
         //

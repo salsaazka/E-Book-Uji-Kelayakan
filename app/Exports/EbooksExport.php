@@ -11,16 +11,23 @@ class EbooksExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
+            'Judul',
+            'Penulis',
+            'Penerbit',
+            'Kategori',
+            'Sinopsis',
+            'No ISBN',
+        ];
+    }
+    public function collection()
+    {
+        return Ebook::select(
             'title',
             'writer',
             'publisher',
             'category',
             'synopsis',
             'no',
-        ];
-    }
-    public function collection()
-    {
-        return Ebook::all();
+        )->get();
     }
 }

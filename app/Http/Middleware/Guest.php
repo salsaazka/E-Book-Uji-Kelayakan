@@ -12,13 +12,11 @@ class Guest
     public function handle(Request $request, Closure $next)
     {
          if(Auth::check()) {
-            if(Auth::user()->role == 'user'){
-                return redirect()->route('userDash')->with('notAllowed', 'Anda sudah login!');
+            if(Auth::user()->role == 'admin'){
+                return redirect()->route('adminDash')->with('notAllowed', 'Anda sudah login!');
             }else{
-                return redirect('/admin/dashboard')->with('notAllowed', 'Anda sudah login!');
+                return redirect('/user/dashboard')->with('notAllowed', 'Anda sudah login!');
             }
-            //kalau gak ada history login bakal dikembalikan ke halaman login dengan pesan error
-           
            }
            return $next($request);      
     }

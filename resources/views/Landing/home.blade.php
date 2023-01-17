@@ -25,7 +25,7 @@
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link scrollto text-primary" href="{{ route('logout') }}">Logout</a>
+                            <a class="nav-link scrollto text-primary" href="/logout">Logout</a>
                         </li>
                     @else
                     <li class="nav-item">
