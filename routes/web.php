@@ -7,8 +7,9 @@ use App\Http\Controllers\CreateBookController;
 
 // auth
 Route::middleware('Guest')->group(function(){
+    Route::get('/', [RegistrationController::class, 'index'])->name('index');
     Route::get('/login', [RegistrationController::class, 'login'])->name('login');
-    Route::post('/auth/login', [RegistrationController::class, 'auth'])->name('login.auth');   
+    Route::post('/auth/login', [RegistrationController::class, 'auth'])->name('login.auth');
     Route::get('/auth/register', [RegistrationController::class, 'register'])->name('register');
     Route::post('/register', [RegistrationController::class, 'inputRegister'])->name('register.post');
 
@@ -25,9 +26,8 @@ Route::middleware(['Login', 'Role:user, admin'])->group(function(){
     Route::get('/buku', [RegistrationController::class, 'book'])->name('book');
     Route::get('/buku/{id}', [RegistrationController::class, 'bookDetail'])->name('bookDetail');
     Route::get('/download/{id}', [RegistrationController::class, 'bookDownload'])->name('bookDownload');
-    Route::get('/', [RegistrationController::class, 'index'])->name('index');
 });
-   
+
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
 Route::get('/error', [RegistrationController::class, 'error'])->name('error');
 //admin
