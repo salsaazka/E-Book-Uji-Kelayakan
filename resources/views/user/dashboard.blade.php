@@ -35,6 +35,32 @@
                             <a class="nav-link scrollto text-primary" href="{{ route('login') }}">Login</a>
                         </li>
                     @endif
+                    <div class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" href="#" role="button" style="color:white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-user"> </i> {{Auth::user()->name}} 
+                      </a>
+                    
+                   <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/todo">
+                      <i class="fa-solid fa-house" style="color: rgb(240, 182, 57)"></i> Home
+                    </a></li>
+                     <li><a class="dropdown-item" href="/todo/detail">
+                       <i class="fa-solid fa-user" style="color: rgb(240, 182, 57)"></i> Profile Detail
+                      </a></li>
+                      @if (Auth::user()->role == 'admin')
+                        <li>
+                          <a class="dropdown-item" href="/todo/data" >
+                            <i class="fas fa-server" style="color: rgb(240, 182, 57)"></i> Data User
+                          </a>
+                        </li>
+                      @endif
+                      <li>
+                        <a class="dropdown-item" href="/logout" >
+                          <i class="fas fa-sign-out-alt" style="color: rgb(240, 182, 57)"></i>  Logout
+                        </a>
+                      </li>
+                     </ul>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -63,20 +89,7 @@
                             </div>
                         </a>
                     @endforeach
-                    {{-- <div class="card w-25">
-                        <img src="{{ asset('assets/img/book1.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card w-25">
-                        <img src="{{ asset('assets/img/book1.png') }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                card's content.</p>
-                        </div>
-                    </div> --}}
+                    
                 </div>
             </h3>
         </div>

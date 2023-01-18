@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registration;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\CreateBook;
@@ -88,7 +89,8 @@ class RegistrationController extends Controller
     public function userDash()
     {
         $createBook = CreateBook::all();
-        return view('user.dashboard', compact('createBook'));
+        $category = Category::all();
+        return view('user.dashboard', compact('createBook', 'category'));
     }
 
     public function logout()
