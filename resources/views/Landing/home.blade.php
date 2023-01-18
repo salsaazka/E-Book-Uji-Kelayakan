@@ -12,6 +12,9 @@
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top shadow " style="margin-top: -.5rem">
         <div class="container">
+            <a class="navbar-brand" id="#">
+                <img src="{{ asset('assets/img/book1.png') }}" alt="" class="logoFan">
+            </a>
             <a class="navbar-brand ">
                 <h4 class="text-primary">
                     <strong>E-Book</strong>
