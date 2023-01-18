@@ -24,10 +24,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link scrollto text-primary" href="/logout">Logout</a>
                         </li>
-                    @else
+                    @else --}}
                         <li class="nav-item">
                             <a class="nav-link scrollto active text-primary me-3" href="#">Home</a>
                         </li>

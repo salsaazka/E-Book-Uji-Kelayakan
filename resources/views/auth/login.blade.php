@@ -36,7 +36,7 @@
                 <input type="password" name="password" class="form-control" id="exampleFormControlInput1" placeholder="Input Password">
               </div>
             
-                <button type="submit" class="btn btn-success"><i class="fas fa-plus"></i> Submit</button>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i> Submit</button>
                <a href="{{ route('index') }}" class="btn btn-secondary mt-2">Back</a>
         </form>
     </div>

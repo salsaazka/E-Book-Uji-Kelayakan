@@ -44,6 +44,6 @@ Route::middleware(['Login', 'Role:admin'])->group(function () {
     Route::delete('/delete/{id}', [CreateBookController::class, 'destroy'])->name('delete');
     //Category
     Route::get('/admin/category', [CategoryController::class, 'create'])->name('create');
-    Route::post('/adsmin/category', [CategoryController::class, 'store'])->name('category');
-    Route::post('/adsmin/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+    Route::post('/admin/category', [CategoryController::class, 'store'])->name('category');
+    Route::post('/admin/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 });

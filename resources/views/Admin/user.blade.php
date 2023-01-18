@@ -9,6 +9,9 @@
         <thead>
             <tr>
                 <th style="width: 5%">No</th>
+                <th style="width: 10%">Name</th>
+                <th style="width: 10%">Address</th>
+                <th style="width: 10%">No Telepon</th>
                 <th style="width: 10%">Email</th>
                 <th style="width: 10%">Action</th>
             </tr>
@@ -17,6 +20,9 @@
             @foreach ($regis as $key => $i)
             <tr>
                 <td>{{ $key + 1 }}</td>
+                <td>{{ $i['name'] }}</td>
+                <td>{{ $i['address'] }}</td>
+                <td>{{ $i['no_telp'] }}</td>
                 <td>{{ $i['email'] }}</td>
                 <td>
                     <div class="ml-auto">
@@ -27,7 +33,6 @@
                       </form>
                 </div>
                 <div class="ml-auto">
-
                     <form action="{{ route('update', $i->id) }}" method="POST">
                         @method('PATCH')
                         @csrf
