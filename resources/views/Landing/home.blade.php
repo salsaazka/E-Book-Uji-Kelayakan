@@ -28,17 +28,27 @@
                             <a class="nav-link scrollto text-primary" href="/logout">Logout</a>
                         </li>
                     @else
-                    <li class="nav-item">
-                        <a class="nav-link scrollto active text-primary me-3" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link scrollto text-primary" href="{{ route('login') }}">Login</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto active text-primary me-3" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto text-primary" href="{{ route('login') }}">Login</a>
+                        </li>
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
+
+
+    @if (Session::get('success'))
+        <div class="container">
+            <div class="alert alert-success w-40 alert-dismissible fade show" style="margin-top: 7rem">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
 
     <div class="container mt-5">
         <div class="d-flex w-100 align-items-center">
