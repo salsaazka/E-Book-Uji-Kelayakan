@@ -16,10 +16,10 @@ Route::middleware('Guest')->group(function(){
 });
 
 //user
- Route::middleware(['Login', 'Role:user'])->group(function(){
+//  Route::middleware(['Login', 'Role:user'])->group(function(){
     Route::get('/user/dashboard', [RegistrationController::class, 'userDash'])->name('userDash');
     Route::get('/user/edit', [RegistrationController::class, 'edit'])->name('edit');
- });
+//  });
 
 //admin & user
 Route::middleware(['Login', 'Role:user, admin'])->group(function(){

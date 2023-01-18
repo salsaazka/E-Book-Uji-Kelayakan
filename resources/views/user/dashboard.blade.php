@@ -25,7 +25,7 @@
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
                       <li class="nav-item">
-                        <a class="nav-link scrollto text-primary active" href="{{ route('index') }}">Logout</a>
+                        <a class="nav-link scrollto text-primary active" href="/login">Logout</a>
                       </li>
                     @else
                       <li class="nav-item">
@@ -41,7 +41,7 @@
                             <i class="fa-solid fa-user"> </i> {{Auth::user()->name}} 
                         </a>
                       
-                     <ul class="dropdown-menu">
+                     {{-- <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="/">
                         <i class="fa-solid fa-house" style="color: rgb(0, 41, 177)"></i> Novel
                       </a></li>
@@ -60,7 +60,7 @@
                             <i class="fas fa-sign-out-alt" style="color: rgb(0, 41, 177)"></i>  Logout
                           </a>
                         </li>
-                       </ul>
+                       </ul> --}}
                       </div>
                     </form>
                     @endif
@@ -69,7 +69,7 @@
         </div>
     </nav>
     @if (Session::get('success'))
-    <div class="alert alert-success w-40 justify-content-center">
+    <div class="alert alert-success w-25 mt-5 pt-5 justify-content-center">
         {{ Session::get('success') }}
     </div>
 @endif

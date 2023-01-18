@@ -32,7 +32,7 @@
                         <button type="submit" class="fa-sharp fa-solid fa-delete-left" style="border:none;  background:none;"> </button>
                       </form>
                 </div>
-                <div class="ml-auto">
+            <div class="ml-auto">
                     
                     <form action="{{ route('update', $i->id) }}" method="POST">
                         @method('PATCH')
