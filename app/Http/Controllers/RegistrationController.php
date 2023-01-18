@@ -85,7 +85,7 @@ class RegistrationController extends Controller
 
     public function adminUser()
     {
-        $regis = User::where('role', 'user')->get();
+        $regus = User::all();
          return view('admin.user', compact('regis'));
     }
 
