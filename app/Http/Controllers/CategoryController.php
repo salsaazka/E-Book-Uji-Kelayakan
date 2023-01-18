@@ -37,6 +37,12 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
+    public function delete($id)
+    {
+        Category::where('id', $id)->delete();
+        return redirect()->route('data')->with('delete', 'Berhasil menghapus data!');
+    }
+
 
     public function show(Category $category)
     {

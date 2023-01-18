@@ -25,7 +25,7 @@
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
                       <li class="nav-item">
-                        <a class="nav-link scrollto text-primary active" href="/login">Logout</a>
+                        <a class="nav-link scrollto text-primary active" href="/logout">Logout</a>
                       </li>
                     @else
                       <li class="nav-item">
@@ -34,33 +34,33 @@
                       <li class="nav-item">
                         <a class="nav-link scrollto" href="{{ route('login') }}">Login</a>
                       </li>
-                    
+
                     <form class="d-flex" role="search">
                         <div class="nav-item dropdown" >
                           <a class="nav-link dropdown-toggle" href="#" role="button" style="color:white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user"> </i> {{Auth::user()->name}} 
+                            <i class="fa-solid fa-user"> </i> {{Auth::user()->name}}
                         </a>
-                      
-                     {{-- <ul class="dropdown-menu">
+
+                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="/">
                         <i class="fa-solid fa-house" style="color: rgb(0, 41, 177)"></i> Novel
                       </a></li>
                        <li><a class="dropdown-item" href="/">
                          <i class="fa-solid fa-user" style="color: rgb(0, 41, 177)"></i> IT
                         </a></li>
-                        
+
                           <li>
                             <a class="dropdown-item" href="/" >
                               <i class="fas fa-server" style="color: rgb(0, 41, 177)"></i> Fiksi
                             </a>
                           </li>
-                       
+
                         <li>
                           <a class="dropdown-item" href="/logout" >
                             <i class="fas fa-sign-out-alt" style="color: rgb(0, 41, 177)"></i>  Logout
                           </a>
                         </li>
-                       </ul> --}}
+                       </ul> 
                       </div>
                     </form>
                     @endif

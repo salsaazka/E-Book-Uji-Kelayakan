@@ -62,7 +62,7 @@ class RegistrationController extends Controller
         $user = $request->only('email', 'password');
         if (Auth::attempt($user)) {
             if(Auth::user()->role == 'user'){
-                return redirect()->route('userDash')->with('success', "Welcome!");
+                return redirect()->route('index')->with('success', "Welcome!");
             }else{
                 return redirect()->route('adminDash');
             }
@@ -146,7 +146,7 @@ class RegistrationController extends Controller
 
       return redirect()->route('adminUser')->with('successUpdate', "Anda berhasil memperbaharui data!");
     }
-    
+
     public function destroy($id)
     {
        Registration::where('id', $id)->delete();

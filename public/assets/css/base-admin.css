@@ -644,3 +644,7 @@ aside #toggle-navbar {
       font-size: 14px;
     }
   }
+
+  .nav{
+    justify-content: start !important;
+  }

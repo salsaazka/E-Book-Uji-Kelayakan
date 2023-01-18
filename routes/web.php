@@ -6,23 +6,23 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CreateBookController;
 
 // auth
-Route::middleware('Guest')->group(function(){
+Route::middleware('Guest')->group(function () {
     Route::get('/', [RegistrationController::class, 'index'])->name('index');
     Route::get('/login', [RegistrationController::class, 'login'])->name('login');
     Route::post('/auth/login', [RegistrationController::class, 'auth'])->name('login.auth');
     Route::get('/auth/register', [RegistrationController::class, 'register'])->name('register');
     Route::post('/register', [RegistrationController::class, 'inputRegister'])->name('register.post');
-
 });
 
 //user
-//  Route::middleware(['Login', 'Role:user'])->group(function(){
+Route::middleware(['Login', 'Role:user'])->group(function () {
+    Route::get('/', [RegistrationController::class, 'index'])->name('index');
     Route::get('/user/dashboard', [RegistrationController::class, 'userDash'])->name('userDash');
     Route::get('/user/edit', [RegistrationController::class, 'edit'])->name('edit');
-//  });
+});
 
 //admin & user
-Route::middleware(['Login', 'Role:user, admin'])->group(function(){
+Route::middleware(['Login', 'Role:user, admin'])->group(function () {
     Route::get('/buku', [RegistrationController::class, 'book'])->name('book');
     Route::get('/buku/{id}', [RegistrationController::class, 'bookDetail'])->name('bookDetail');
     Route::get('/download/{id}', [RegistrationController::class, 'bookDownload'])->name('bookDownload');
@@ -32,7 +32,7 @@ Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout')
 Route::get('/error', [RegistrationController::class, 'error'])->name('error');
 
 //admin
-Route::middleware(['Login', 'Role:admin'])->group(function(){
+Route::middleware(['Login', 'Role:admin'])->group(function () {
     //Registration
     Route::get('/admin/dashboard', [RegistrationController::class, 'adminDash'])->name('adminDash');
     Route::get('/admin/user', [RegistrationController::class, 'adminUser'])->name('adminUser');
@@ -46,5 +46,5 @@ Route::middleware(['Login', 'Role:admin'])->group(function(){
     //Category
     Route::get('/admin/category', [CategoryController::class, 'create'])->name('create');
     Route::post('/adsmin/category', [CategoryController::class, 'store'])->name('category');
-    
+    Route::post('/adsmin/category/delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 });
