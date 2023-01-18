@@ -105,7 +105,7 @@
             <div class="d-flex justify-content-around mt-3">
                 @foreach ($createBook as $item)
                     <a class="card w-25" href="{{ route('bookDetail', $item->id) }}" >
-                        <img src="{{ url('assets/img/data/' . $item->image) }}" class="card-img-top" style="max-height: 300px">
+                        <img src="{{ url('/assets/img/data/' . $item->image) }}" class="card-img-top" style="max-height: 300px">
                         <div class="card-body">
                             <p class="card-text">{{ $item->title }}</p>
                         </div>
