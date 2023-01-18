@@ -14,6 +14,7 @@
                 <th style="width: 20%">No Telp</th>
                 <th style="width: 10%">Email</th>
                 <th style="width: 10%">Action</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($regis as $key => $i)
@@ -41,9 +42,7 @@
                 </div>
                 </td>
             </tr>
-            @endforeach
-              
-           
+            @endforeach      
         </tbody>
     </table>
 </div>

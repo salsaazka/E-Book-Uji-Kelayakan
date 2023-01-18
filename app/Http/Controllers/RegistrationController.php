@@ -93,7 +93,7 @@ class RegistrationController extends Controller
     {
         return view('user.dashboard');
     }
-    
+
     public function logout()
     {
         Auth::logout();
@@ -146,6 +146,7 @@ class RegistrationController extends Controller
 
       return redirect()->route('adminUser')->with('successUpdate', "Anda berhasil memperbaharui data!");
     }
+    
     public function destroy($id)
     {
        Registration::where('id', $id)->delete();

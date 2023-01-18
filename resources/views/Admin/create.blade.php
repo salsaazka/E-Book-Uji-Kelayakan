@@ -8,7 +8,7 @@
         <img src="{{asset('assets/img/book1.png')}}" alt="" class="w-100">
     </div>
     <div class="col-6 col-md-12 col-lg-5 col-xl-6 mt-2 pt-2">
-        <form method="POST" action="{{ route('store')}}" class="card py-4 px-4">
+        <form method="POST" action="{{ route('store')}}"  enctype="multipart/form-data" class="card py-4 px-4">
             @csrf
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -59,56 +59,67 @@
         </form>
     </div>
     </div>
-</div>
 
-<div class="wrapperTable table-responsive">
-  <table id="userTable" class="tables" style="width:100%">
-      <thead>
-          <tr>
-              <th style="width: 5%">No</th>
-              <th style="width: 10%">Book ID</th>
-              <th style="width: 10%">Category ID</th>
-              <th style="width: 10%">Title</th>
-              <th style="width: 10%">Writer</th>
-              <th style="width: 10%">Publisher</th>
-              <th style="width: 10%">ISBN</th>
-              <th style="width: 10%">Action</th>
-      </thead>
-      <tbody>
-          @foreach ($category as $key => $categories)
-          <tr>
-              <td>{{ $key + 1 }}</td>
-              <td>{{ $categories['id'] }}</td>
-              <td>{{ $categories['category'] }}</td>
-              <td>{{ $categories['title'] }}</td>
-              <td>{{ $categories['writer'] }}</td>
-              <td>{{ $categories['publisher'] }}</td>
-              <td>{{ $categories['no'] }}</td>
-              <td>{{ $categories['synopsis'] }}</td>
-              <td>
-                  <div class="ml-auto"> 
-                      <form action="{{ route('delete', $categories['id']) }}" method="POST">
+    <div class="container mt-5 px-5">    
+        <div class="wrapperTable table-responsive">
+          <table id="userTable" class="tables" style="width:100%">
+            <thead>
+              <tr>
+                <th style="width: 5%">No</th>
+                <th style="width: 10%">Book ID</th>
+                <th style="width: 10%">Category ID</th>
+                <th style="width: 15%">Title</th>
+                <th style="width: 15%">Writer</th>
+                <th style="width: 10%">Publisher</th>
+                <th style="width: 15%">ISBN</th>
+                <th style="width: 10%">Action</th>
+              </tr>
+
+            </thead>
+            <tbody>
+              @foreach ($category as $key => $categories)
+                <tr>
+                  <td>{{ $key + 1 }}</td>
+                  <td>{{ $categories['id'] }}</td>
+                  <td>{{ $categories['category'] }}</td>
+                  <td>{{ $categories['title'] }}</td>
+                  <td>{{ $categories['writer'] }}</td>
+                  <td>{{ $categories['publisher'] }}</td>
+                  <td>{{ $categories['no'] }}</td>
+                  <td>{{ $categories['synopsis'] }}</td>
+                  <td>
+                      <div class="ml-auto"> 
+                        <form action="{{ route('delete', $categories['id']) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="fa-sharp fa-solid fa-delete-left" style="border:none;  background:none;"> </button>
+                        </form>
+                      </div>
+                    <div class="ml-auto">
+                      <form action="{{ route('update', $categories->id) }}" method="POST">
+                          @method('PATCH')
                           @csrf
-                          @method('DELETE')
-                      <button type="submit" class="fa-sharp fa-solid fa-delete-left" style="border:none;  background:none;"> </button>
-                    </form>
-              </div>
-              <div class="ml-auto">
-                  
-                  <form action="{{ route('update', $categories->id) }}" method="POST">
-                      @method('PATCH')
-                      @csrf
-                      <button type="submit" class="fa-sharp fa-solid fa-arrow-rotate-left" style="border: none; background:none;"></button> 
-                  </form>  
-              </div>
-              </td>
-          </tr>
-          @endforeach
-            
-         
-      </tbody>
-  </table>
-</div>
+                          <button type="submit" class="fa-sharp fa-solid fa-arrow-rotate-left" style="border: none; background:none;"></button> 
+                      </form>  
+                    </div>
+                  </td>
+                </tr>
+              @endforeach 
+            </tbody>
+          </table>
+        </div>
+       </div>
+    </div>
+
 @endsection
 
-    
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#userTable').DataTable({
+                "info": false,
+                "bSort": false,
+            });
+        });
+    </script>
+@endsection
