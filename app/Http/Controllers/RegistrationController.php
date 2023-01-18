@@ -85,7 +85,7 @@ class RegistrationController extends Controller
 
     public function adminUser()
     {
-        $regus = User::all();
+        $regis = User::where('role', 'user')->get();
          return view('admin.user', compact('regis'));
     }
 
@@ -146,7 +146,7 @@ class RegistrationController extends Controller
 
       return redirect()->route('adminUser')->with('successUpdate', "Anda berhasil memperbaharui data!");
     }
-    
+
     public function destroy($id)
     {
        Registration::where('id', $id)->delete();
