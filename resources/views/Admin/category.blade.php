@@ -31,7 +31,7 @@
                                     <td>{{ $categories['name'] }}</td>
                                     <td>
                                         <div class="ml-auto">
-                                            <form action="{{ route('delete', $categories['id']) }}" method="POST">
+                                            <form action="{{ route('category.delete', $categories['id']) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="fa-sharp fa-solid fa-delete-left"
