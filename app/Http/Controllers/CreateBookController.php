@@ -27,11 +27,11 @@ class CreateBookController extends Controller
     public function createBook()
     {
         $category = CreateBook::all();
-       return view('Admin.create', compact('category'));
+       return view('admin.create', compact('category'));
     }
 
 
-    public function store(Request $request, CreateBook $createBook)
+    public function store(Request $request)
     {
         $request->validate([
             'title' => 'required',
@@ -63,11 +63,11 @@ class CreateBookController extends Controller
             'publisher' => $request->publisher,
             'category' => $request->category,
             'image' => $uploaded,
-            'no' => $request->image,
+            'no' => $request->no,
             'synopsis' => $request->synopsis,
         ]);
 
-        return redirect()->route('adminDash')->with('success', 'berhasil membuat akun!');
+        return redirect()->route('store')->with('success', 'berhasil membuat akun!');
     }
     
     public function show(CreateBook $createBook)
