@@ -16,6 +16,7 @@ Route::middleware('Guest')->group(function () {
 
 //user
 Route::middleware(['Login', 'Role:user'])->group(function () {
+    Route::get('/', [RegistrationController::class, 'index'])->name('index');
     Route::get('/user/dashboard', [RegistrationController::class, 'userDash'])->name('userDash');
     Route::get('/user/edit', [RegistrationController::class, 'edit'])->name('edit');
 });
