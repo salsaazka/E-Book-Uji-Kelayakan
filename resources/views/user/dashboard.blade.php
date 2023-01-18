@@ -24,53 +24,61 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-1 mb-lg-0 ">
                     @if (Auth::check())
-                      <li class="nav-item">
-                        <a class="nav-link scrollto text-primary active" href="/logout">Logout</a>
-                      </li>
-                    @else
-                      <li class="nav-item">
-                        <a class="nav-link scrollto active text-primary me-3" href="{{ route('userDash')}}">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link scrollto" href="{{ route('login') }}">Login</a>
-                      </li>
-
-                    <form class="d-flex" role="search">
-                        <div class="nav-item dropdown" >
-                          <a class="nav-link dropdown-toggle" href="#" role="button" style="color:white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-user"> </i> {{Auth::user()->name}}
-                        </a>
-
-                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/">
-                        <i class="fa-solid fa-house" style="color: rgb(0, 41, 177)"></i> Novel
-                      </a></li>
-                       <li><a class="dropdown-item" href="/">
-                         <i class="fa-solid fa-user" style="color: rgb(0, 41, 177)"></i> IT
-                        </a></li>
-
-                          <li>
-                            <a class="dropdown-item" href="/" >
-                              <i class="fas fa-server" style="color: rgb(0, 41, 177)"></i> Fiksi
-                            </a>
-                          </li>
-
-                        <li>
-                          <a class="dropdown-item" href="/logout" >
-                            <i class="fas fa-sign-out-alt" style="color: rgb(0, 41, 177)"></i>  Logout
-                          </a>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto text-primary" href="/logout">Logout</a>
                         </li>
-                       </ul> 
-                      </div>
-                    </form>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link scrollto active text-primary me-3" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto text-primary" href="{{ route('login') }}">Login</a>
+                        </li>
                     @endif
                 </ul>
             </div>
         </div>
     </nav>
+
+
     @if (Session::get('success'))
-    <div class="alert alert-success w-25 mt-5 pt-5 justify-content-center">
-        {{ Session::get('success') }}
+        <div class="container">
+            <div class="alert alert-success w-40 alert-dismissible fade show" style="margin-top: 7rem">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    @endif
+
+    <div class="container" style="margin-top: 7rem">
+        <div>
+            <h3 class=" text-primary text-center">
+                <strong>Daftar Buku</strong>
+                <div class="d-flex justify-content-around mt-3">
+                    @foreach ($createBook as $item)
+                        <a class="card w-25" href="{{ route('bookDetail', $item->id) }}" >
+                            <img src="{{ url('assets/img/data/' . $item->image) }}" class="card-img-top" style="max-height: 300px">
+                            <div class="card-body">
+                                <p class="card-text">{{ $item->title }}</p>
+                            </div>
+                        </a>
+                    @endforeach
+                    {{-- <div class="card w-25">
+                        <img src="{{ asset('assets/img/book1.png') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card w-25">
+                        <img src="{{ asset('assets/img/book1.png') }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                        </div>
+                    </div> --}}
+                </div>
+            </h3>
+        </div>
     </div>
-@endif
 @endsection

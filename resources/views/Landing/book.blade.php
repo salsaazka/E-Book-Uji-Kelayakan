@@ -31,7 +31,7 @@
                             <a class="nav-link scrollto text-primary active" href="{{ route('index') }}">Logout</a>
                         </li>
                     @else
-                        
+
                         <li class="nav-item">
                             <a class="nav-link scrollto" href="{{ route('login') }}">Login</a>
                         </li>
@@ -55,7 +55,7 @@
             <div class="d-flex flex-wrap justify-content-around">
                 @foreach ($book as $item)
                     <a class="card me-2 mt-3" href="{{ route('bookDetail', $item->id) }}" style="width: 23%">
-                        <img src="{{ $item->image }}" class="card-img-top" alt="...">
+                        <img src="{{ url('assets/img/data/' . $item->image) }}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text" style="text-decoration: none">{{ $item->title }}</p>
                         </div>
