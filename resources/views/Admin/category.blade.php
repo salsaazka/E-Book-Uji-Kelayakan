@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-            <form method="POST" action="{{ route('store') }}" class="card py-4 px-4">
+            <form method="POST" action="{{ route('category') }}"  enctype="multipart/form-data" class="card py-4 px-4">
                 @csrf
                 @if ($errors->any())
                     <div class="alert alert-danger">

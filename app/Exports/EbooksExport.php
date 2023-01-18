@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Ebook;
+use App\Models\CreateBook;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
@@ -21,7 +21,7 @@ class EbooksExport implements FromCollection, WithHeadings
     }
     public function collection()
     {
-        return Ebook::select(
+        return CreateBook::select(
             'title',
             'writer',
             'publisher',

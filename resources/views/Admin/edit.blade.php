@@ -3,7 +3,7 @@
 @section('title', 'Create Book')
 
 @section('content')
-<form method="POST" action="{{ route('update', $categories['id'])}}" id="create-form" class="card py-4 px-4">
+<form method="POST" action="{{ route('update', $category['id'])}}" id="create-form" class="card py-4 px-4">
     @csrf
     @method('PATCH')
     @if ($errors->any())

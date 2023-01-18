@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\CreateBook;
 use Illuminate\Http\Request;
 use App\Models\User;
+use PDF;
 use Illuminate\Support\Facades\Route;
+use App\Exports\EbooksExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CreateBookController extends Controller
 {
@@ -100,12 +103,36 @@ class CreateBookController extends Controller
         'no' => $request->image,
         'synopsis' => $request->synopsis,
       ]);
-
+      $category = CreateBook::where('id', $id)->first();
       return redirect()->route('createBook')->with('successUpdate', "Anda berhasil memperbaharui data!");
     }
+
     public function destroy($id)
     {
        CreateBook::where('id', $id)->delete();
        return redirect()->route('createBook')->with('delete', 'Berhasil menghapus data!');
+    }
+
+     //Excel
+     public function export()
+     {
+         return Excel::download(new EbooksExport, 'Data.xlsx');
+ 
+     }
+
+     //PDF
+     public function pdf()
+     {
+        $book = CreateBook::orderBy('count_download', 'desc')->take(3)->get();
+        view()->share('book',$book);
+        $pdf = PDF::loadView('pdf', $book->toArray());
+        return $pdf->download('Data.pdf');
+     }
+     public function bookDownload($id)
+    {
+        $book = CreateBook::where('id', $id)->first();
+        $book->count_download = $book->count_download + 1;
+        $book->save();
+        return view('landing.bookDetail', compact('book'));
     }
 }

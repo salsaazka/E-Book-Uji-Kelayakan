@@ -66,11 +66,7 @@
             <td width="3%">:</td>
             <td>{{ $book->synopsis }}</td>
         </tr>
-        <tr>
-            <td width="30%" style="font-size: 13px"><b>NO HP Ayah</b></td>
-            <td width="3%">:</td>
-            <td>{{ $book->no_telpA }}</td>
-        </tr>
+    
         <tr>
             <td colspan="3" style="padding: 10px 0;"></td>
         </tr>

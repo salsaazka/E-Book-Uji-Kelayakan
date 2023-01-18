@@ -34,7 +34,7 @@ class CategoryController extends Controller
         Category::create([
             'name' => $request->name,
         ]);
-        return redirect()->route('store');
+        return redirect()->route('category');
     }
 
     public function destroy($id)

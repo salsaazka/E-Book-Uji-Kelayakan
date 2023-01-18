@@ -24,7 +24,7 @@ Route::middleware(['Login', 'Role:user'])->group(function () {
 Route::middleware(['Login', 'Role:user, admin'])->group(function () {
     Route::get('/buku', [RegistrationController::class, 'book'])->name('book');
     Route::get('/buku/{id}', [RegistrationController::class, 'bookDetail'])->name('bookDetail');
-    Route::get('/download/{id}', [RegistrationController::class, 'bookDownload'])->name('bookDownload');
+    Route::get('/download/{id}', [CreateBookController::class, 'bookDownload'])->name('bookDownload');
 });
 
 Route::get('/logout', [RegistrationController::class, 'logout'])->name('logout');
@@ -35,7 +35,7 @@ Route::middleware(['Login', 'Role:admin'])->group(function () {
     //Registration
     Route::get('/admin/dashboard', [RegistrationController::class, 'adminDash'])->name('adminDash');
     Route::get('/admin/user', [RegistrationController::class, 'adminUser'])->name('adminUser');
-    Route::get('/buku/excel', [RegistrationController::class, 'export'])->name('export.excel');
+   
 });
 
 Route::middleware(['Login', 'Role:admin'])->group(function () {
@@ -45,6 +45,7 @@ Route::middleware(['Login', 'Role:admin'])->group(function () {
     Route::get('/edit/{id}', [CreateBookController::class, 'edit'])->name('edit');
     Route::patch('/update/{id}', [CreateBookController::class, 'update'])->name('update');
     Route::delete('/delete/{id}', [CreateBookController::class, 'destroy'])->name('delete');
+    Route::get('/export/excel', [CreateBookController::class, 'export'])->name('export.excel');
 });
 
 Route::middleware(['Login', 'Role:admin'])->group(function () {

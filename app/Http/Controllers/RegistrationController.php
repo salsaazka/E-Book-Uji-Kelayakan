@@ -9,8 +9,7 @@ use App\Models\CreateBook;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Exports\RegistrationsExport;
-use Maatwebsite\Excel\Facades\Excel;
+
 
 class RegistrationController extends Controller
 {
@@ -72,12 +71,7 @@ class RegistrationController extends Controller
             return redirect('/')->with('fail', "Email-Address And Password Are Wrong.");
         }
     }
-    //Excel
-    public function export()
-    {
-        return Excel::download(new EbooksExport, 'Data.xlsx');
-
-    }
+   
 
     public function adminDash()
     {
@@ -168,11 +162,5 @@ class RegistrationController extends Controller
         return view('landing.bookDetail', compact('book'));
     }
 
-    public function bookDownload($id)
-    {
-        $book = CreateBook::where('id', $id)->first();
-        $book->count_download = $book->count_download + 1;
-        $book->save();
-        return view('landing.bookDetail', compact('book'));
-    }
+    
 }
