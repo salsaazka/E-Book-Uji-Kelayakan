@@ -46,16 +46,14 @@
                                             <form action="{{ route('delete', $categories['id']) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="fa-sharp fa-solid fa-delete-left"
-                                                    style="border:none;  background:none;"> </button>
+                                                <button type="submit" class="btn btn-danger">Delete </button>
                                             </form>
                                         </div>
                                         <div class="ml-auto">
-                                            <form action="{{ route('update', $categories->id) }}" method="POST">
+                                            <form action="{{ route('update', $categories['id']) }}" method="POST">
                                                 @method('PATCH')
                                                 @csrf
-                                                <button type="submit" class="fa-sharp fa-solid fa-arrow-rotate-left"
-                                                    style="border: none; background:none;"></button>
+                                                <button type="submit" class="btn btn-warning mt-2">Edit</button>
                                             </form>
                                         </div>
                                     </td>
@@ -69,11 +67,11 @@
 
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
         <div class="d-flex flex row ">
-            <div class="col-6  d-flex justify-content-center col-lg-6 ">
-                <img src="{{ asset('assets/img/book1.png') }}" alt="" class="w-75">
+            <div class="col-6 d-flex justify-content-center ">
+                <img src="{{ asset('assets/img/book1.png') }}" alt="">
             </div>
             <div class="col-6 col-md-12 col-lg-5 col-xl-6 mt-2 pt-2">
-                <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data" class="card py-4 px-4">
+                <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data" class="card py-4 px-2">
                     @csrf
                     @if ($errors->any())
                         <div class="alert alert-danger">
@@ -84,9 +82,6 @@
                             </ul>
                         </div>
                     @endif
-                    <div class="text-center logo ml-3">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Title</label>
                         <input type="text" name="title" class="form-control" id="exampleFormControlInput1"

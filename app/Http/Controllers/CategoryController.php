@@ -34,13 +34,13 @@ class CategoryController extends Controller
         Category::create([
             'name' => $request->name,
         ]);
-        return redirect()->back();
+        return redirect()->route('store');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         Category::where('id', $id)->delete();
-        return redirect()->route('data')->with('delete', 'Berhasil menghapus data!');
+        return redirect()->route('create')->with('delete', 'Berhasil menghapus data!');
     }
 
 
@@ -72,14 +72,4 @@ class CategoryController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
-    {
-        //
-    }
 }

@@ -62,10 +62,10 @@
                 <div class="mb-3">
                     <h3>Category Name</h3>
                     <label for="exampleFormControlInput1" class="form-label">Category Name</label>
-                    <input type="text" name="title" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Input Title">
+                    <input type="text" name="name" class="form-control" id="exampleFormControlInput1"
+                        placeholder="Input Category">
                 </div>
-                <button type="submit" class="btn btn-success"></i> Submit</button>
+                <button type="submit" class="btn btn-primary"></i> Submit</button>
             </form>
         </div>
     </div>

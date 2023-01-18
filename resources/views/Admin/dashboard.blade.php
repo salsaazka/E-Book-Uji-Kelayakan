@@ -18,6 +18,13 @@
     </div>  
  @endif
 
+ <div class="alert alert-dark w-100 d-flex align-items-center alert-dismissible fade show" role="alert">
+    <i class="fas fa-exclamation-triangle text-danger " style="margin-right: 10px;"></i>
+    <div>
+        Selamat Datang dihalaman Admin E-Book!
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ </div> 
 @endsection
 
 

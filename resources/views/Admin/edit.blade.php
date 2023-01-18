@@ -1,10 +1,11 @@
 @extends('layouts.base-admin')
 
-@section('title', 'Data Donatur')
+@section('title', 'Create Book')
 
 @section('content')
-<form method="POST" action="{{route('update')}}" class="card py-4 px-4">
+<form method="POST" action="{{ route('update', $categories['id'])}}" id="create-form" class="card py-4 px-4">
     @csrf
+    @method('PATCH')
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

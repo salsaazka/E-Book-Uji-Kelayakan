@@ -78,7 +78,7 @@ class CreateBookController extends Controller
     public function edit($id)
     {
        $category = CreateBook::where('id', $id)->first();
-       return view('user.edit', compact('category'));
+       return view('admin.edit', compact('category'));
     }
 
     public function update(Request $request, $id)
@@ -101,11 +101,11 @@ class CreateBookController extends Controller
         'synopsis' => $request->synopsis,
       ]);
 
-      return redirect()->route('create')->with('successUpdate', "Anda berhasil memperbaharui data!");
+      return redirect()->route('createBook')->with('successUpdate', "Anda berhasil memperbaharui data!");
     }
     public function destroy($id)
     {
        CreateBook::where('id', $id)->delete();
-       return redirect()->route('userDash')->with('delete', 'Berhasil menghapus data!');
+       return redirect()->route('createBook')->with('delete', 'Berhasil menghapus data!');
     }
 }
