@@ -109,6 +109,7 @@
                         <div class="card-body">
                             <p class="card-text">{{ $item->title }}</p>
                         </div>
+                        
                     </a>
                 @endforeach
                 {{-- <div class="card w-25">
