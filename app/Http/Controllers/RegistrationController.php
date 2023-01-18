@@ -28,18 +28,18 @@ class RegistrationController extends Controller
         // dd($request->all());
         // validasi atau aturan value column pada db
         $request->validate([
-            'email' => 'required',
-            'name' => 'required|min:4|max:50',
+            'name' => 'required|min:4',
             'no_telp' => 'required|max:13',
             'address' => 'required',
+            'email' => 'required',
             'password' => 'required',
         ]);
         // tambah data ke db bagian table users
-        User::create([
+        Registration::create([
             'name' => $request->name,
             'no_telp' => $request->no_telp,
-            'email' => $request->email,
             'address' => $request->address,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
         return redirect()->route('login')->with('success', 'berhasil membuat akun!');
@@ -85,7 +85,7 @@ class RegistrationController extends Controller
 
     public function adminUser()
     {
-        $regis = User::where('role', 'user')->get();
+        $regis = Registration::all();
          return view('admin.user', compact('regis'));
     }
 
