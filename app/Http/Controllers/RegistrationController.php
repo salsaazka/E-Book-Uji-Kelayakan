@@ -62,7 +62,7 @@ class RegistrationController extends Controller
         $user = $request->only('email', 'password');
         if (Auth::attempt($user)) {
             if(Auth::user()->role == 'user'){
-                return redirect()->route('index')->with('success', "Welcome!");
+                return redirect()->route('userDash')->with('success', "Welcome!");
             }else{
                 return redirect()->route('adminDash');
             }
@@ -70,7 +70,7 @@ class RegistrationController extends Controller
             return redirect('/')->with('fail', "Email-Address And Password Are Wrong.");
         }
     }
-
+    //Excel
     public function export()
     {
         return Excel::download(new EbooksExport, 'Data.xlsx');
@@ -80,7 +80,7 @@ class RegistrationController extends Controller
     public function adminDash()
     {
          $regis = Registration::all();
-         return view('admin.dashboard', compact('regis'))->with('i', (request()->input('page',1)-1));
+         return view('admin.dashboard', compact('regis'));
     }
 
     public function adminUser()
@@ -93,6 +93,7 @@ class RegistrationController extends Controller
     {
         return view('user.dashboard');
     }
+    
     public function logout()
     {
         Auth::logout();
@@ -123,7 +124,7 @@ class RegistrationController extends Controller
 
     public function edit($id)
     {
-       $regis = Registration::where('id', $id)->first();
+       $regis = Registration::all();
        return view('dashboard.edit', compact('regis'));
     }
 
