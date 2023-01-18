@@ -195,12 +195,13 @@
               <tr>
                 <th style="width: 5%">No</th>
                 <th style="width: 10%">Book ID</th>
-                <th style="width: 10%">Category ID</th>
+                <th style="width: 15%">Category ID</th>
                 <th style="width: 15%">Title</th>
                 <th style="width: 15%">Writer</th>
-                <th style="width: 10%">Publisher</th>
+                <th style="width: 15%">Publisher</th>
                 <th style="width: 15%">ISBN</th>
-                <th style="width: 10%">Action</th>
+                <th style="width: 15%">Sinopsis</th>
+                <th style="width: 5%">Action</th>
               </tr>
 
             </thead>
@@ -220,10 +221,10 @@
                         <form action="{{ route('delete', $categories['id']) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="fa-sharp fa-solid fa-delete-left" style="border:none;  background:none;"> </button>
+                            <button type="submit" class="btn btn-danger " >Delete</button>
                         </form>
                       </div>
-                    <div class="ml-auto">
+                    <div class="ml-auto mt-2 ">
                       <form action="{{ route('update', $categories->id) }}" method="POST">
                           @method('PATCH')
                           @csrf

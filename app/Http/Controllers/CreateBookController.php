@@ -27,7 +27,7 @@ class CreateBookController extends Controller
     public function createBook()
     {
         $category = CreateBook::all();
-       return view('admin.create', compact('category'));
+        return view('admin.create', compact('category'));
     }
 
 
