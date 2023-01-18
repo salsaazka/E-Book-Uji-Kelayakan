@@ -91,7 +91,8 @@ class RegistrationController extends Controller
 
     public function userDash()
     {
-        return view('user.dashboard');
+        $createBook = CreateBook::all();
+        return view('user.dashboard', compact('createBook'));
     }
 
     public function logout()

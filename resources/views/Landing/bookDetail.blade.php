@@ -49,7 +49,7 @@
     <div class="container" style="min-height: 100vh; margin-top: 7rem">
         <div class="d-flex flex-row card">
             <div class="col-4 m-3 d-flex justify-content-center">
-                <img src="{{ $book->image }}" class="w-100">
+                <img src="{{ url('assets/img/data/' . $book->image) }}" class="w-100">
             </div>
             <div class="col-8 m-3">
                 <p>Judul: {{ $book->title }}</p>
