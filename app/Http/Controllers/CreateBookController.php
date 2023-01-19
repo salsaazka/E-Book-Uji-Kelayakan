@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Route;
 use App\Exports\EbooksExport;
 use Maatwebsite\Excel\Facades\Excel;
 
+
 class CreateBookController extends Controller
 {
     /**
@@ -73,7 +74,7 @@ class CreateBookController extends Controller
 
         return redirect()->route('store')->with('success', 'berhasil membuat akun!');
     }
-    
+
     public function show(CreateBook $createBook)
     {
         //
@@ -118,7 +119,7 @@ class CreateBookController extends Controller
      public function export()
      {
          return Excel::download(new EbooksExport, 'Data.xlsx');
- 
+
      }
 
      //PDF
@@ -134,6 +135,7 @@ class CreateBookController extends Controller
         $book = CreateBook::where('id', $id)->first();
         $book->count_download = $book->count_download + 1;
         $book->save();
+
         return view('landing.bookDetail', compact('book'));
     }
 }

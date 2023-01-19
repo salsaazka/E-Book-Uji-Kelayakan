@@ -60,7 +60,9 @@
                     <strong>Sinopsis:</strong>
                 </h4><br>
                 <p>{{ $book->synopsis }}</p>
-                <a href="{{ route('createBook', $book->id) }}" class="btn btn-success"  target="_blank ">Download</a>
+                if
+                <a href="{{ route('bookDownload', $book->id) }}" class="btn btn-success">Download</a>
+                {{-- <a href="{{ route('createBook', $book->id) }}" class="btn btn-success"  target="_blank ">Download</a> --}}
                 {{-- <a href="/borrows/pdf" class="btn btn-warning " target="_blank">Export PDF</a> --}}
                 <a href="{{ route('book') }}" class="btn btn-warning">Back</a>
             </div>

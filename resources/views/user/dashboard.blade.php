@@ -36,10 +36,10 @@
                         </li>
                     @endif
                     <div class="nav-item dropdown" >
-                        <a class="nav-link dropdown-toggle" href="#" role="button" style="color:white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="fa-solid fa-user"> </i> {{Auth::user()->name}} 
+                        <a class="nav-link dropdown-toggle text-primary" href="#" role="button" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          {{Auth::user()->email}}
                       </a>
-                    
+
                    <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/todo">
                       <i class="fa-solid fa-house" style="color: rgb(240, 182, 57)"></i> Home
@@ -89,7 +89,7 @@
                             </div>
                         </a>
                     @endforeach
-                    
+
                 </div>
             </h3>
         </div>
