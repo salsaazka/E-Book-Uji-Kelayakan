@@ -133,9 +133,9 @@ class CreateBookController extends Controller
         User::where('id', Auth::user()->id)->update([
             'download' => $user,
         ]);
-        view()->share('book',$book);
-        $pdf = PDF::loadView('user.pdf', $book->toArray());
-        return $pdf->download('Data.pdf', compact('book'));
+        // view()->share('book',$book);
+        // $pdf = PDF::loadView('user.pdf', $book->toArray());
+        // return $pdf->download('Data.pdf', compact('book'));
         return view('landing.bookDetail', compact('book'));
     }
 }
