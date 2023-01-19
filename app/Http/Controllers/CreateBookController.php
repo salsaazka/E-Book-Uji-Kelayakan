@@ -14,21 +14,13 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class CreateBookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function createBook()
     {
         $category = CreateBook::all();
@@ -123,19 +115,21 @@ class CreateBookController extends Controller
      }
 
      //PDF
-     public function pdf()
-     {
-        $book = CreateBook::orderBy('count_download', 'desc')->take(3)->get();
-        view()->share('book',$book);
-        $pdf = PDF::loadView('pdf', $book->toArray());
-        return $pdf->download('Data.pdf');
-     }
+    //  public function pdf()
+    //  {
+    //     $book = CreateBook::orderBy('count_download', 'desc')->take(3)->get();
+    //     view()->share('book',$book);
+    //     $pdf = PDF::loadView('pdf', $book->toArray());
+    //     return $pdf->download('Data.pdf');
+    //  }
      public function bookDownload($id)
     {
         $book = CreateBook::where('id', $id)->first();
         $book->count_download = $book->count_download + 1;
         $book->save();
-
-        return view('landing.bookDetail', compact('book'));
+        view()->share('book',$book);
+        $pdf = PDF::loadView('user.pdf', $book->toArray());
+        return $pdf->download('Data.pdf', compact('book'));
+        // return view('landing.bookDetail', compact('book'));
     }
 }

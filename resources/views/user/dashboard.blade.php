@@ -37,19 +37,19 @@
                     @endif
                     <div class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle text-primary" href="#" role="button" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          {{Auth::user()->email}}
+                          {{Auth::user()->name}}
                       </a>
 
                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/todo">
+                    <li><a class="dropdown-item" href="/">
                       <i class="fa-solid fa-house" style="color: rgb(240, 182, 57)"></i> Home
                     </a></li>
-                     <li><a class="dropdown-item" href="/todo/detail">
+                     <li><a class="dropdown-item" href="/">
                        <i class="fa-solid fa-user" style="color: rgb(240, 182, 57)"></i> Profile Detail
                       </a></li>
                       @if (Auth::user()->role == 'admin')
                         <li>
-                          <a class="dropdown-item" href="/todo/data" >
+                          <a class="dropdown-item" href="/" >
                             <i class="fas fa-server" style="color: rgb(240, 182, 57)"></i> Data User
                           </a>
                         </li>

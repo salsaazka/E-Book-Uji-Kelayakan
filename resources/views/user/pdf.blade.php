@@ -7,7 +7,7 @@
                 <td rowspan="4" width="10%">
                     <center>
                         <div>
-                            <img src="{{ asset('assets/img/logo-wk.png') }}" width="100px">
+                            <img src="{{ public_path('assets/img/logo-wk.png') }}" width="100px">
                         </div>
                     </center>
                 </td>
@@ -66,7 +66,11 @@
             <td width="3%">:</td>
             <td>{{ $book->synopsis }}</td>
         </tr>
-    
+        <tr>
+            <td width="30%" style="font-size: 13px"><b>COVER BOOK</b></td>
+            <td width="3%">:</td>
+            <td><img src="{{ public_path('assets/img/data/'. $book->image) }}" style="width: 250px"></td>
+        </tr>
         <tr>
             <td colspan="3" style="padding: 10px 0;"></td>
         </tr>
