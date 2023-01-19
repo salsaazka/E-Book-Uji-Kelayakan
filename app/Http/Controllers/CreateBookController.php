@@ -9,18 +9,19 @@ use App\Models\User;
 use PDF;
 use Illuminate\Support\Facades\Route;
 use App\Exports\EbooksExport;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 
 class CreateBookController extends Controller
 {
-   
+
     public function index()
     {
         //
     }
 
-    
+
     public function createBook()
     {
         $category = CreateBook::all();
@@ -127,9 +128,14 @@ class CreateBookController extends Controller
         $book = CreateBook::where('id', $id)->first();
         $book->count_download = $book->count_download + 1;
         $book->save();
+        $user = Auth::user()->download;
+        $user = $user + 1;
+        User::where('id', Auth::user()->id)->update([
+            'download' => $user,
+        ]);
         view()->share('book',$book);
         $pdf = PDF::loadView('user.pdf', $book->toArray());
         return $pdf->download('Data.pdf', compact('book'));
-        // return view('landing.bookDetail', compact('book'));
+        return view('landing.bookDetail', compact('book'));
     }
 }
