@@ -44,6 +44,11 @@ class RegistrationController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        User::create([
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        
         return redirect()->route('login')->with('success', 'berhasil membuat akun!');
     }
 
