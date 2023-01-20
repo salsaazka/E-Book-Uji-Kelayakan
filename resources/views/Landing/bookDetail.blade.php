@@ -60,10 +60,10 @@
                     <strong>Sinopsis:</strong>
                 </h4><br>
                 <p>{{ $book->synopsis }}</p>
-                @if (Auth::user()->download <= 3)
-                <a href="{{ route('bookDownload', $book->id) }}" class="btn btn-success">Download</a>
-                @else
+                @if (Auth::user()->download >= 4)
                 <button class="btn btn-primary" onclick="myFunction()">Download</button>
+                @else
+                <a href="{{ route('bookDownload', $book->id) }}" class="btn btn-success">Download</a>
                 @endif
                 {{-- <a href="{{ route('createBook', $book->id) }}" class="btn btn-success"  target="_blank ">Download</a> --}}
                 {{-- <a href="/borrows/pdf" class="btn btn-warning " target="_blank">Export PDF</a> --}}
