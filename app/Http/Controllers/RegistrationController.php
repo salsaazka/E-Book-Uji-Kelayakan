@@ -49,7 +49,7 @@ class RegistrationController extends Controller
             'name' => $request->name,
             'password' => Hash::make($request->password),
         ]);
-        
+
         return redirect()->route('login')->with('success', 'berhasil membuat akun!');
     }
 
@@ -78,7 +78,7 @@ class RegistrationController extends Controller
             return redirect('/')->with('fail', "Email-Address And Password Are Wrong.");
         }
     }
-   
+
 
     public function adminDash()
     {
@@ -171,5 +171,5 @@ class RegistrationController extends Controller
         return view('landing.bookDetail', compact('book'));
     }
 
-    
+
 }

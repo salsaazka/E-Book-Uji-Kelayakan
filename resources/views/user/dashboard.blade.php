@@ -35,31 +35,32 @@
                             <a class="nav-link scrollto text-primary" href="{{ route('login') }}">Login</a>
                         </li>
                     @endif
-                    <div class="nav-item dropdown" >
-                        <a class="nav-link dropdown-toggle text-primary" href="#" role="button" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          {{Auth::user()->name}}
-                      </a>
-
-                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/">
-                      <i class="fa-solid fa-house" style="color: rgb(240, 182, 57)"></i> Home
-                    </a></li>
-                     <li><a class="dropdown-item" href="/">
-                       <i class="fa-solid fa-user" style="color: rgb(240, 182, 57)"></i> Profile Detail
-                      </a></li>
-                      @if (Auth::user()->role == 'admin')
-                        <li>
-                          <a class="dropdown-item" href="/" >
-                            <i class="fas fa-server" style="color: rgb(240, 182, 57)"></i> Data User
-                          </a>
-                        </li>
-                      @endif
-                      <li>
-                        <a class="dropdown-item" href="/logout" >
-                          <i class="fas fa-sign-out-alt" style="color: rgb(240, 182, 57)"></i>  Logout
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-primary" href="#" role="button" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
                         </a>
-                      </li>
-                     </ul>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/">
+                                    <i class="fa-solid fa-house" style="color: rgb(240, 182, 57)"></i> Home
+                                </a></li>
+                            <li><a class="dropdown-item" href="/">
+                                    <i class="fa-solid fa-user" style="color: rgb(240, 182, 57)"></i> Profile Detail
+                                </a></li>
+                            @if (Auth::user()->role == 'admin')
+                                <li>
+                                    <a class="dropdown-item" href="/">
+                                        <i class="fas fa-server" style="color: rgb(240, 182, 57)"></i> Data User
+                                    </a>
+                                </li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item" href="/logout">
+                                    <i class="fas fa-sign-out-alt" style="color: rgb(240, 182, 57)"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </ul>
             </div>
@@ -80,18 +81,76 @@
         <div>
             <h3 class=" text-primary text-center">
                 <strong>Daftar Buku</strong>
-                <div class="d-flex justify-content-around mt-3">
-                    @foreach ($createBook as $item)
-                        <a class="card w-25" href="{{ route('bookDetail', $item->id) }}" >
-                            <img src="{{ url('assets/img/data/' . $item->image) }}" class="card-img-top" style="max-height: 300px">
-                            <div class="card-body">
-                                <p class="card-text">{{ $item->title }}</p>
-                            </div>
-                        </a>
-                    @endforeach
-
-                </div>
             </h3>
+            <div class="d-flex justify-content-center mt-4">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    @foreach ($category as $item)
+                        {{-- if active --}}
+                        @if ($loop->first)
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-{{ $item->id }}-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-{{ $item->id }}" type="button" role="tab"
+                                    aria-controls="pills-{{ $item->id }}"
+                                    aria-selected="true">{{ $item->name }}</button>
+                            </li>
+                        @else
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-{{ $item->id }}-tab" data-bs-toggle="pill"
+                                    data-bs-target="#pills-{{ $item->id }}" type="button" role="tab"
+                                    aria-controls="pills-{{ $item->id }}"
+                                    aria-selected="false">{{ $item->name }}</button>
+                            </li>
+                        @endif
+                    @endforeach
+                </ul>
+            </div>
+            <div class="tab-content" id="pills-tabContent">
+                @foreach ($category as $item)
+                    {{-- if active --}}
+                    @if ($loop->first)
+                        <div class="tab-pane fade show active" id="pills-{{ $item->id }}" role="tabpanel"
+                            aria-labelledby="pills-{{ $item->id }}-tab" tabindex="0">
+                            <div class="d-flex justify-content-around mt-3">
+                                @foreach ($createBook as $items)
+                                    @if ($items->category == $item->name)
+                                        <a class="card w-25" href="{{ route('bookDetail', $items->id) }}">
+                                            <img src="{{ url('assets/img/data/' . $items->image) }}" class="card-img-top"
+                                                style="max-height: 300px">
+                                            <div class="card-body">
+                                                <p class="card-text">{{ $items->title }}</p>
+                                            </div>
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <div class="tab-pane fade" id="pills-{{ $item->id }}" role="tabpanel"
+                            aria-labelledby="pills-{{ $item->id }}-tab" tabindex="0">
+                            <div class="d-flex justify-content-around mt-3">
+                                @foreach ($createBook as $items)
+                                    @if ($items->category == $item->name)
+                                        <a class="card w-25" href="{{ route('bookDetail', $items->id) }}">
+                                            <img src="{{ url('assets/img/data/' . $items->image) }}" class="card-img-top"
+                                                style="max-height: 300px">
+                                            <div class="card-body">
+                                                <p class="card-text">{{ $items->title }}</p>
+                                            </div>
+                                        </a>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+                {{-- <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"
+                    tabindex="0">...</div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"
+                    tabindex="0">...</div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"
+                    tabindex="0">...</div>
+                <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab"
+                    tabindex="0">...</div> --}}
+            </div>
         </div>
-    </div>
-@endsection
+    @endsection

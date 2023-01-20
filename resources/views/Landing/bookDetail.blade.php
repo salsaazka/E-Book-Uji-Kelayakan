@@ -60,8 +60,11 @@
                     <strong>Sinopsis:</strong>
                 </h4><br>
                 <p>{{ $book->synopsis }}</p>
-                if
+                @if (Auth::user()->download <= 3)
                 <a href="{{ route('bookDownload', $book->id) }}" class="btn btn-success">Download</a>
+                @else
+                <button class="btn btn-primary" onclick="myFunction()">Download</button>
+                @endif
                 {{-- <a href="{{ route('createBook', $book->id) }}" class="btn btn-success"  target="_blank ">Download</a> --}}
                 {{-- <a href="/borrows/pdf" class="btn btn-warning " target="_blank">Export PDF</a> --}}
                 <a href="{{ route('book') }}" class="btn btn-warning">Back</a>
@@ -73,4 +76,12 @@
             <p class="text-center text-white p-0 m-0">Copyright</p>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        function myFunction() {
+            alert('Maaf, Anda sudah melebihi batas download');
+        }
+    </script>
 @endsection
