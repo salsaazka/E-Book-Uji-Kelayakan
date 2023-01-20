@@ -126,9 +126,22 @@ class CreateBookController extends Controller
         User::where('id', Auth::user()->id)->update([
             'download' => $user,
         ]);
-        // view()->share('book',$book);
-        // $pdf = PDF::loadView('user.pdf', $book->toArray());
+        view()->share('book',$book);
+        $pdf = PDF::loadView('user.pdf', $book->toArray());
         // return $pdf->download('Data.pdf', compact('book'));
-        return view('landing.bookDetail', compact('book'));
+        return view ('landing.bookDetail', compact('book'));
+
+        // Artisan::call('cache.clear');
+        // $cek = Ebooklog::where('user_id', Auth::user()->id)
+        // ->wheredate('created_at', date('Y-m-d'))->get();
+
+        // if(count($cek) >= 3){
+        //     return back()->with('wrong', 'jkbadbjkhsdjaj');
+        // }
+        // $log = new Ebooklog;
+        // $log->user_id = Auth::user()->id;
+        // $log->ebook_id = $ebook_id;
+        // $log->save();
+
     }
 }
