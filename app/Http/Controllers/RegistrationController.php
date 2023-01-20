@@ -161,7 +161,8 @@ class RegistrationController extends Controller
     public function book()
     {
         $book = CreateBook::all();
-        return view('landing.book', compact('book'));
+        $category = Category::all();
+        return view('landing.book', compact('book', 'category'));
     }
 
     public function bookDetail($id)

@@ -114,14 +114,7 @@ class CreateBookController extends Controller
 
      }
 
-     //PDF
-    //  public function pdf()
-    //  {
-    //     $book = CreateBook::orderBy('count_download', 'desc')->take(3)->get();
-    //     view()->share('book',$book);
-    //     $pdf = PDF::loadView('pdf', $book->toArray());
-    //     return $pdf->download('Data.pdf');
-    //  }
+     
      public function bookDownload($id)
     {
         $book = CreateBook::where('id', $id)->first();
